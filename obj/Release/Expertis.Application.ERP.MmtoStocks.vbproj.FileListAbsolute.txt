@@ -1,0 +1,88 @@
+C:\Builds\2\Producto\Expertis50R2_Release\bin\Release\Expertis.Application.ERP.MmtoStocks.dll
+C:\Builds\2\Producto\Expertis50R2_Release\bin\Release\Expertis.Application.ERP.MmtoStocks.pdb
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\ResolveAssemblyReference.cache
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.Ajustes.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIAcumulados.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIRotacion.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockAFechaLote.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockSeguridad.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockUD.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaLote.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaMovimientos.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaNSerie.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.Inventarios.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.MovimientoManual.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ParametrosValoracion.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.SeleccionMoneda.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaAlmacenes.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaContenedor.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaPortes.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionEnFecha.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionEnFechaAlmacen.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionFIFO.resources
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.vbproj.GenerateResource.Cache
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll.licenses
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll
+C:\Builds\2\Producto\Expertis50R2_Release\src\Main\Source\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.pdb
+C:\Users\lgonzalez\Desktop\Bin\Expertis.Application.ERP.MmtoStocks.dll
+C:\Users\lgonzalez\Desktop\Bin\Expertis.Application.ERP.MmtoStocks.pdb
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\ResolveAssemblyReference.cache
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.Ajustes.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIAcumulados.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIRotacion.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockAFechaLote.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockSeguridad.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockUD.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CltStock.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaLote.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaMovimientos.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaNSerie.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.Inventarios.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.MovimientoManual.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ParametrosValoracion.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.SeleccionMoneda.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaAlmacenes.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaContenedor.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaPortes.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionEnFecha.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionEnFechaAlmacen.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionFIFO.resources
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.vbproj.GenerateResource.Cache
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll.licenses
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll
+C:\Users\lgonzalez\Desktop\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.pdb
+C:\Users\lgonzalez\Desktop\EXPERTIS\Bin\Expertis.Application.ERP.MmtoStocks.dll
+C:\Users\lgonzalez\Desktop\EXPERTIS\Bin\Expertis.Application.ERP.MmtoStocks.pdb
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\ResolveAssemblyReference.cache
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.Ajustes.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIAcumulados.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIRotacion.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockAFechaLote.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockSeguridad.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockUD.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CltStock.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaLote.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaMovimientos.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaNSerie.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.Inventarios.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.MovimientoManual.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ParametrosValoracion.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.SeleccionMoneda.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaAlmacenes.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaContenedor.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaPortes.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionEnFecha.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionEnFechaAlmacen.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionFIFO.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.vbproj.GenerateResource.Cache
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll.licenses
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.pdb
+C:\ExpertisNet50R2test\Bin\Expertis.Application.ERP.MmtoStocks.dll
+C:\ExpertisNet50R2test\Bin\Expertis.Application.ERP.MmtoStocks.pdb
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.frmInformeFecha.resources
+C:\ExpertisNet50R2\Bin\Expertis.Application.ERP.MmtoStocks.dll
+C:\ExpertisNet50R2\Bin\Expertis.Application.ERP.MmtoStocks.pdb
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.frmInformeFechaEncofrado.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaTodosMovimientos.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TodosMovimientosAlmacenes.resources
