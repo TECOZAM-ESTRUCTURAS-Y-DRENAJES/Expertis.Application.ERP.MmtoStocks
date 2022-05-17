@@ -21,8 +21,6 @@
         e.Filter.Add("FechaDocumento", FilterOperator.LessThanOrEqual, FechaDocumentoHasta.Value, FilterType.DateTime)
         e.Filter.Add("Documento", FilterOperator.Equal, Documento.Text, FilterType.String)
         e.Filter.Add("IDTipoMovimiento", FilterOperator.Equal, TipoMovimiento.Value, FilterType.Numeric)
-
-
     End Sub
 
     Private Sub ConsultaTodosMovimientos_SetReportDesignObjects(ByVal sender As System.Object, ByVal e As Solmicro.Expertis.Engine.UI.ReportDesignObjectsEventArgs) Handles MyBase.SetReportDesignObjects
@@ -69,7 +67,37 @@
                 Exit Sub
             End If
             'GenerarInformeBeneficio(CInt(vMes), CInt(vAnio))
-            GenerarInformeBeneficio4(CDate(Fecha1), CDate(Fecha2), Familia)
+            GenerarInformeBeneficio5(CDate(Fecha1), CDate(Fecha2), Familia)
+
+            e.Cancel = True
+        ElseIf e.Alias = "INFENCOSUBFAM" Then
+            Dim frm As New frmInformeFechaEncofrado
+            frm.ShowDialog()
+            Fecha1 = frm.FechaDesde.Value
+            Fecha2 = frm.FechaHasta.Value
+            Familia = AdvFamilia.Text
+
+            If frm.blEstado = True Then
+                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                e.Cancel = True
+                Exit Sub
+            End If
+            GenerarInformeBeneficioPorSubFamilia(CDate(Fecha1), CDate(Fecha2), Familia)
+
+            e.Cancel = True
+        ElseIf e.Alias = "INFENCORESUB" Then
+            Dim frm As New frmInformeFechaEncofrado
+            frm.ShowDialog()
+            Fecha1 = frm.FechaDesde.Value
+            Fecha2 = frm.FechaHasta.Value
+            Familia = AdvFamilia.Text
+
+            If frm.blEstado = True Then
+                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                e.Cancel = True
+                Exit Sub
+            End If
+            GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
 
             e.Cancel = True
         End If
@@ -314,6 +342,292 @@
 
             Dim tabla As New DataTable
             tabla = arti.DevuelveTabla2(strSelect2)
+            rp.Subreports("acumuladoMesAnt").DataSource = tabla
+            rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
+
+            ExpertisApp.OpenReport(rp)
+        Catch ex As SqlClient.SqlException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub GenerarInformeBeneficio5(ByVal Fecha1 As Date, ByVal Fecha2 As Date, ByVal idfamilia As String)
+        'Creo instancia del informe con Alias: INFENCOTODOS
+        Dim rp As New Report("INFENCOTODOS")
+        Dim filtro As New Filter
+        Dim laborables As String
+
+        'Saco los disas laboranles
+
+        laborables = Dias_naturales(Fecha1, Fecha2)
+        'filtro.Add("Nobra", FilterOperator.Equal, obra)
+        'no la paso por el fltro para que me saque todos los datos hasta la fecha que le indique yo.
+        Dim familia As String = idfamilia
+        Dim dFamilia As String
+        Dim arti As New Business.Negocio.Articulo
+        Dim dtFam As DataTable = arti.DevuelveTabla(familia)
+
+        'filtro.Add("fechaMovimiento", FilterOperator.GreaterThanOrEqual, Fecha1)
+        filtro.Add("fechaDocumento", FilterOperator.LessThanOrEqual, Fecha2)
+        filtro.Add("idfamilia", FilterOperator.Equal, familia)
+        filtro.Add("Activo", FilterOperator.Equal, 1)
+
+
+        'filtro.Add("idfamilia", FilterOperator.Equal, "3010")
+        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND Activo= 1 AND IDFamilia='" & idfamilia & "'"
+        Dim tabla3 As New DataTable
+        tabla3 = arti.DevuelveTabla2(strSelect3)
+        'rp.DataSource = New BE.DataEngine().Filter("vFrmTransferenciasEncofrados2E4_1", filtro)
+        rp.DataSource = tabla3
+
+        For Each drfam As DataRow In dtFam.Rows
+            dFamilia = drfam(0)
+        Next
+        Try
+            rp.Formulas("laborables").Text = laborables
+            rp.Formulas("fecha1").Text = Fecha1
+            rp.Formulas("fecha2").Text = Fecha2
+            rp.Formulas("Familia").Text = dFamilia
+            'familia = "3010"
+
+            'Dim strSelect As String = "SELECT dbo.tbHistoricoMovimientoE4.IDLineaMovimiento, dbo.tbHistoricoMovimientoE4.IDMovimiento, "
+            'strSelect &= "dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento, dbo.tbHistoricoMovimientoE4.IDArticulo, dbo.tbMaestroArticuloE4.DescArticulo, "
+            'strSelect &= "dbo.tbHistoricoMovimientoE4.Cantidad, dbo.tbHistoricoMovimientoE4.IDAlmacen, dbo.tbHistoricoMovimientoE4.Lote, dbo.tbHistoricoMovimientoE4.Ubicacion, "
+            'strSelect &= "dbo.tbHistoricoMovimientoE4.FechaDocumento, dbo.tbHistoricoMovimientoE4.Acumulado, dbo.tbHistoricoMovimientoE4.FechaMovimiento, "
+            'strSelect &= "dbo.tbHistoricoMovimientoE4.PrecioA, dbo.tbHistoricoMovimientoE4.PrecioB, dbo.tbMaestroArticuloE4.IDTipo, dbo.tbMaestroArticuloE4.IDFamilia, "
+            'strSelect &= "dbo.tbMaestroArticuloE4.IDSubfamilia, dbo.tbHistoricoMovimientoE4.IDTipoMovimiento, dbo.tbHistoricoMovimientoE4.Documento, "
+            'strSelect &= "dbo.tbMaestroArticuloE4.NSerieObligatorio, dbo.tbHistoricoMovimientoE4.IDObra, dbo.tbObraCabeceraE4.NObra, dbo.tbMaestroArticuloE4.ValorReposicionA, "
+            'strSelect &= "dbo.tbMaestroArticuloE4.PrecioEstandarA "
+            'strSelect &= "FROM dbo.tbObraCabeceraE4 RIGHT OUTER JOIN "
+            'strSelect &= "dbo.tbMaestroTipoMovimientoE4 INNER JOIN "
+            'strSelect &= "dbo.tbHistoricoMovimientoE4 ON dbo.tbMaestroTipoMovimientoE4.IDTipoMovimiento = dbo.tbHistoricoMovimientoE4.IDTipoMovimiento ON "
+            'strSelect &= "dbo.tbObraCabeceraE4.IDObra = dbo.tbHistoricoMovimientoE4.IDObra LEFT OUTER JOIN "
+            'strSelect &= "dbo.tbMaestroArticuloE4 ON dbo.tbHistoricoMovimientoE4.IDArticulo = dbo.tbMaestroArticuloE4.IDArticulo INNER JOIN "
+            'strSelect &= "dbo.tbMaestroAlmacenE4 ON dbo.tbHistoricoMovimientoE4.IDAlmacen = dbo.tbMaestroAlmacenE4.IDAlmacen INNER JOIN "
+            'strSelect &= "(SELECT idarticulo, idalmacen, MAX(fechaDocumento) AS fecha "
+            'strSelect &= "FROM tbhistoricomovimientoE4 "
+            'strSelect &= "WHERE fechaDocumento <'" & Fecha1 & "' "
+            'strSelect &= "GROUP BY idarticulo, idalmacen) FechaMaxima ON dbo.tbHistoricoMovimientoE4.IDArticulo = FechaMaxima.idarticulo AND "
+            'strSelect &= "dbo.tbHistoricoMovimientoE4.IDAlmacen = FechaMaxima.idalmacen And FechaMaxima.fecha = dbo.tbHistoricoMovimientoE4.FechaDocumento "
+            'strSelect &= "WHERE (dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'T+' OR "
+            'strSelect &= "dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'T-' OR dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'S1') AND (dbo.tbMaestroAlmacenE4.Activo = 1) AND (dbo.tbMaestroArticuloE4.IDFamilia = '" & familia & "') "
+            'strSelect &= "ORDER BY dbo.tbHistoricoMovimientoE4.IDAlmacen, dbo.tbHistoricoMovimientoE4.IDArticulo "
+            'MsgBox(strSelect)
+            'Dim al As String
+            'al = "011"
+            Dim strSelect2 As String = "SELECT * FROM vFrmCIMovimientosE4_1 where FechaDocumento <'" & Fecha1 & "' AND Activo= 1 AND PrecioEstandarA!=0 AND IDFamilia='" & familia & "' AND (CodTipoMovimiento='T-' OR CodTipoMovimiento='T+' OR CodTipoMovimiento='S1') order by IDLineaMovimiento desc"
+
+
+            Dim tabla As New DataTable
+            tabla = arti.DevuelveTabla2(strSelect2)
+            rp.Subreports("acumuladoMesAnt").DataSource = tabla
+            rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
+
+            ExpertisApp.OpenReport(rp)
+        Catch ex As SqlClient.SqlException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub GenerarInformeBeneficioPorSubFamilia(ByVal Fecha1 As Date, ByVal Fecha2 As Date, ByVal idfamilia As String)
+        'Creo instancia del informe con Alias: INFENCOSUBFAM
+        Dim rp As New Report("INFENCOSUBFAM")
+        Dim filtro As New Filter
+        Dim laborables As String
+
+        'Saco los disas laboranles
+
+        laborables = Dias_naturales(Fecha1, Fecha2)
+
+        Dim familia As String = idfamilia
+        Dim dFamilia As String
+        Dim arti As New Business.Negocio.Articulo
+        Dim dtFam As DataTable = arti.DevuelveTabla(familia)
+
+        filtro.Add("fechaDocumento", FilterOperator.LessThanOrEqual, Fecha2)
+        filtro.Add("idfamilia", FilterOperator.Equal, familia)
+        filtro.Add("Activo", FilterOperator.Equal, 1)
+
+        Dim almace As String
+        almace = "012"
+        Dim almace2 As String
+        almace2 = "DP19"
+        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "'"
+        Dim tabla3 As New DataTable
+        tabla3 = arti.DevuelveTabla2(strSelect3)
+        'Recorro tabla y pongo en IDSubfamilia la agrupación
+        'Elemento, viga, tornillo, puntal, otros
+        For Each dr As DataRow In tabla3.Rows
+            If dr("DescArticulo").ToString.Contains("ELEMENTO") Or dr("DescArticulo").ToString.Contains("ESQUINA") Then
+                dr("IDSubfamilia") = "ELEMENTO MARCO"
+            ElseIf dr("DescArticulo").ToString.Contains("MARCO-TEC") Then
+                dr("IDSubfamilia") = "MARCO-TEC"
+            ElseIf dr("DescArticulo").ToString.Contains("MEDIO MOLDE") Or dr("DescArticulo").ToString.Contains("ZUNCHO") Then
+                dr("IDSubfamilia") = "MEDIO MOLDE"
+            ElseIf dr("DescArticulo").ToString.Contains("PANEL") Then
+                dr("IDSubfamilia") = "ORMA"
+            ElseIf dr("DescArticulo").ToString.Contains("VIGA") Or dr("DescArticulo").ToString.Contains("RIPADO") Then
+                dr("IDSubfamilia") = "VIGA"
+            ElseIf dr("DescArticulo").ToString.Contains("PUNTAL") Or dr("DescArticulo").ToString.Contains("+") Then
+                dr("IDSubfamilia") = "PUNTAL"
+            ElseIf dr("DescArticulo").ToString.Contains("TABICA") Then
+                dr("IDSubfamilia") = "TABICA"
+            ElseIf dr("DescArticulo").ToString.Contains("TORNILLO") Then
+                dr("IDSubfamilia") = "TORNILLO"
+            ElseIf dr("DescArticulo").ToString.Contains("BARANDILLA") Then
+                dr("IDSubfamilia") = "SOPORTES BARANDILLA"
+            ElseIf dr("DescArticulo").ToString.Contains("SOPORTE CONSOLA") Then
+                dr("IDSubfamilia") = "SOPORTE CONSOLA"
+            Else
+                dr("IDSubfamilia") = "OTROS"
+            End If
+
+        Next
+        rp.DataSource = tabla3
+
+        For Each drfam As DataRow In dtFam.Rows
+            dFamilia = drfam(0)
+        Next
+        Try
+            rp.Formulas("laborables").Text = laborables
+            rp.Formulas("fecha1").Text = Fecha1
+            rp.Formulas("fecha2").Text = Fecha2
+            rp.Formulas("Familia").Text = dFamilia
+            Dim strSelect2 As String = "SELECT * FROM vFrmCIMovimientosE4_1 where FechaDocumento <'" & Fecha1 & "' AND Activo= 1 AND PrecioEstandarA!=0 AND IDFamilia='" & familia & "' AND (CodTipoMovimiento='T-' OR CodTipoMovimiento='T+' OR CodTipoMovimiento='S1') order by IDLineaMovimiento desc"
+
+
+            Dim tabla As New DataTable
+            tabla = arti.DevuelveTabla2(strSelect2)
+            For Each dr As DataRow In tabla.Rows
+                If dr("DescArticulo").ToString.Contains("ELEMENTO") Or dr("DescArticulo").ToString.Contains("ESQUINA") Then
+                    dr("IDSubfamilia") = "ELEMENTO MARCO"
+                ElseIf dr("DescArticulo").ToString.Contains("MARCO-TEC") Then
+                    dr("IDSubfamilia") = "MARCO-TEC"
+                ElseIf dr("DescArticulo").ToString.Contains("MEDIO MOLDE") Or dr("DescArticulo").ToString.Contains("ZUNCHO") Then
+                    dr("IDSubfamilia") = "MEDIO MOLDE"
+                ElseIf dr("DescArticulo").ToString.Contains("PANEL") Then
+                    dr("IDSubfamilia") = "ORMA"
+                ElseIf dr("DescArticulo").ToString.Contains("VIGA") Or dr("DescArticulo").ToString.Contains("RIPADO") Then
+                    dr("IDSubfamilia") = "VIGA"
+                ElseIf dr("DescArticulo").ToString.Contains("PUNTAL") Or dr("DescArticulo").ToString.Contains("+") Then
+                    dr("IDSubfamilia") = "PUNTAL"
+                ElseIf dr("DescArticulo").ToString.Contains("TABICA") Then
+                    dr("IDSubfamilia") = "TABICA"
+                ElseIf dr("DescArticulo").ToString.Contains("TORNILLO") Then
+                    dr("IDSubfamilia") = "TORNILLO"
+                ElseIf dr("DescArticulo").ToString.Contains("BARANDILLA") Then
+                    dr("IDSubfamilia") = "SOPORTES BARANDILLA"
+                ElseIf dr("DescArticulo").ToString.Contains("SOPORTE CONSOLA") Then
+                    dr("IDSubfamilia") = "SOPORTE CONSOLA"
+                Else
+                    dr("IDSubfamilia") = "OTROS"
+                End If
+
+            Next
+            rp.Subreports("acumuladoMesAnt").DataSource = tabla
+            rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
+
+            ExpertisApp.OpenReport(rp)
+        Catch ex As SqlClient.SqlException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub GenerarInformeBeneficioPorSubFamiliaResumen(ByVal Fecha1 As Date, ByVal Fecha2 As Date, ByVal idfamilia As String)
+        'Creo instancia del informe con Alias: INFENCORESUB
+        Dim rp As New Report("INFENCORESUB")
+        Dim filtro As New Filter
+        Dim laborables As String
+
+        'Saco los disas laboranles
+
+        laborables = Dias_naturales(Fecha1, Fecha2)
+
+        Dim familia As String = idfamilia
+        Dim dFamilia As String
+        Dim arti As New Business.Negocio.Articulo
+        Dim dtFam As DataTable = arti.DevuelveTabla(familia)
+
+        filtro.Add("fechaDocumento", FilterOperator.LessThanOrEqual, Fecha2)
+        filtro.Add("idfamilia", FilterOperator.Equal, familia)
+        filtro.Add("Activo", FilterOperator.Equal, 1)
+
+        Dim almace As String
+        almace = "012"
+        Dim almace2 As String
+        almace2 = "DP19"
+        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "'"
+        Dim tabla3 As New DataTable
+        tabla3 = arti.DevuelveTabla2(strSelect3)
+        'Recorro tabla y pongo en IDSubfamilia la agrupación
+        'Elemento, viga, tornillo, puntal, otros
+        For Each dr As DataRow In tabla3.Rows
+            If dr("DescArticulo").ToString.Contains("ELEMENTO") Or dr("DescArticulo").ToString.Contains("ESQUINA") Then
+                dr("IDSubfamilia") = "ELEMENTO MARCO"
+            ElseIf dr("DescArticulo").ToString.Contains("MARCO-TEC") Then
+                dr("IDSubfamilia") = "MARCO-TEC"
+            ElseIf dr("DescArticulo").ToString.Contains("MEDIO MOLDE") Or dr("DescArticulo").ToString.Contains("ZUNCHO") Then
+                dr("IDSubfamilia") = "MEDIO MOLDE"
+            ElseIf dr("DescArticulo").ToString.Contains("PANEL") Then
+                dr("IDSubfamilia") = "ORMA"
+            ElseIf dr("DescArticulo").ToString.Contains("VIGA") Or dr("DescArticulo").ToString.Contains("RIPADO") Then
+                dr("IDSubfamilia") = "VIGA"
+            ElseIf dr("DescArticulo").ToString.Contains("PUNTAL") Or dr("DescArticulo").ToString.Contains("+") Then
+                dr("IDSubfamilia") = "PUNTAL"
+            ElseIf dr("DescArticulo").ToString.Contains("TABICA") Then
+                dr("IDSubfamilia") = "TABICA"
+            ElseIf dr("DescArticulo").ToString.Contains("TORNILLO") Then
+                dr("IDSubfamilia") = "TORNILLO"
+            ElseIf dr("DescArticulo").ToString.Contains("BARANDILLA") Then
+                dr("IDSubfamilia") = "SOPORTES BARANDILLA"
+            ElseIf dr("DescArticulo").ToString.Contains("SOPORTE CONSOLA") Then
+                dr("IDSubfamilia") = "SOPORTE CONSOLA"
+            Else
+                dr("IDSubfamilia") = "OTROS"
+            End If
+
+        Next
+        rp.DataSource = tabla3
+
+        For Each drfam As DataRow In dtFam.Rows
+            dFamilia = drfam(0)
+        Next
+        Try
+            rp.Formulas("laborables").Text = laborables
+            rp.Formulas("fecha1").Text = Fecha1
+            rp.Formulas("fecha2").Text = Fecha2
+            rp.Formulas("Familia").Text = dFamilia
+            Dim strSelect2 As String = "SELECT * FROM vFrmCIMovimientosE4_1 where FechaDocumento <'" & Fecha1 & "' AND Activo= 1 AND PrecioEstandarA!=0 AND IDFamilia='" & familia & "' AND (CodTipoMovimiento='T-' OR CodTipoMovimiento='T+' OR CodTipoMovimiento='S1') order by IDLineaMovimiento desc"
+
+
+            Dim tabla As New DataTable
+            tabla = arti.DevuelveTabla2(strSelect2)
+            For Each dr As DataRow In tabla.Rows
+                If dr("DescArticulo").ToString.Contains("ELEMENTO") Or dr("DescArticulo").ToString.Contains("ESQUINA") Then
+                    dr("IDSubfamilia") = "ELEMENTO MARCO"
+                ElseIf dr("DescArticulo").ToString.Contains("MARCO-TEC") Then
+                    dr("IDSubfamilia") = "MARCO-TEC"
+                ElseIf dr("DescArticulo").ToString.Contains("MEDIO MOLDE") Or dr("DescArticulo").ToString.Contains("ZUNCHO") Then
+                    dr("IDSubfamilia") = "MEDIO MOLDE"
+                ElseIf dr("DescArticulo").ToString.Contains("PANEL") Then
+                    dr("IDSubfamilia") = "ORMA"
+                ElseIf dr("DescArticulo").ToString.Contains("VIGA") Or dr("DescArticulo").ToString.Contains("RIPADO") Then
+                    dr("IDSubfamilia") = "VIGA"
+                ElseIf dr("DescArticulo").ToString.Contains("PUNTAL") Or dr("DescArticulo").ToString.Contains("+") Then
+                    dr("IDSubfamilia") = "PUNTAL"
+                ElseIf dr("DescArticulo").ToString.Contains("TABICA") Then
+                    dr("IDSubfamilia") = "TABICA"
+                ElseIf dr("DescArticulo").ToString.Contains("TORNILLO") Then
+                    dr("IDSubfamilia") = "TORNILLO"
+                ElseIf dr("DescArticulo").ToString.Contains("BARANDILLA") Then
+                    dr("IDSubfamilia") = "SOPORTES BARANDILLA"
+                ElseIf dr("DescArticulo").ToString.Contains("SOPORTE CONSOLA") Then
+                    dr("IDSubfamilia") = "SOPORTE CONSOLA"
+                Else
+                    dr("IDSubfamilia") = "OTROS"
+                End If
+
+
+            Next
             rp.Subreports("acumuladoMesAnt").DataSource = tabla
             rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
 
