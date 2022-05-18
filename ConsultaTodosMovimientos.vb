@@ -27,6 +27,7 @@
         Dim Fecha1 As Date
         Dim Fecha2 As Date
         Dim Familia As String
+        Dim Tipo As String
         Dim obra As String
         ' Dim vAnio As Integer
         Dim cancel As Boolean
@@ -98,6 +99,24 @@
                 Exit Sub
             End If
             GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
+
+            e.Cancel = True
+        ElseIf e.Alias = "MOVOBRAFECHA" Then
+            Dim frm As New frmInformeFechaEncofrado
+            frm.ShowDialog()
+            Fecha1 = frm.FechaDesde.Value
+            Fecha2 = frm.FechaHasta.Value
+            Familia = AdvFamilia.Text
+            Tipo = TipoArticulo.Text
+
+            obra = Almacen.Text
+
+            If frm.blEstado = True Then
+                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                e.Cancel = True
+                Exit Sub
+            End If
+            GenerarInformeMovimientos("MOVOBRAFECHA", CDate(Fecha1), CDate(Fecha2), Familia, obra, Tipo)
 
             e.Cancel = True
         End If
@@ -635,5 +654,22 @@
         Catch ex As SqlClient.SqlException
             MsgBox(ex.Message)
         End Try
+    End Sub
+    Private Sub GenerarInformeMovimientos(ByVal sInforme As String, ByVal Fecha1 As Date, ByVal Fecha2 As Date, ByVal idfamilia As String, ByVal obra As String, ByVal tipo As String)
+        Dim rp As New Report(sInforme)
+        Dim filtro As New Filter
+        Dim dt As New DataTable
+
+        filtro.Add("IDAlmacen", FilterOperator.Equal, obra)
+        filtro.Add("FechaDocumento", FilterOperator.GreaterThanOrEqual, Fecha1)
+        filtro.Add("FechaDocumento", FilterOperator.LessThanOrEqual, Fecha2)
+        If (idfamilia.Length.ToString <> 0) Then
+            filtro.Add("IDFamilia", FilterOperator.Equal, idfamilia)
+        End If
+
+        rp.DataSource = New BE.DataEngine().Filter("vFrmCIMovimientosE4_1", filtro)
+        rp.Formulas("fecha1").Text = Fecha1
+        rp.Formulas("fecha2").Text = Fecha2
+        ExpertisApp.OpenReport(rp)
     End Sub
 End Class

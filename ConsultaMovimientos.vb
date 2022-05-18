@@ -815,6 +815,21 @@ Public Class ConsultaMovimientos
             GenerarInformeBeneficio1(CDate(Fecha1), CDate(Fecha2))
 
             e.Cancel = True
+        ElseIf e.Alias = "MOVOBRFEC" Then
+            Dim frm As New frmInformeFecha
+            frm.ShowDialog()
+            Fecha1 = frm.FechaDesde.Value
+            Fecha2 = frm.FechaHasta.Value
+            obra = Almacen.Text
+            Familia = AdvFamilia.Text
+
+            If frm.blEstado = True Then
+                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                e.Cancel = True
+                Exit Sub
+            End If
+            GenerarMovimientos(CDate(Fecha1), CDate(Fecha2), obra, Familia)
+            e.Cancel = True
         ElseIf e.Alias = "INFCOST2" Then
             Dim frm As New frmInformeFecha
             frm.ShowDialog()
@@ -915,6 +930,36 @@ Public Class ConsultaMovimientos
 
             
             rp.DataSource = New BE.DataEngine().Filter("vFrmCIMovimientos", filtro)
+
+            ExpertisApp.OpenReport(rp)
+        Catch ex As Exception
+            ExpertisApp.GenerateMessage(ex.Message)
+        End Try
+    End Sub
+    Private Sub GenerarMovimientos(ByVal Fecha1 As Date, ByVal Fecha2 As Date, ByVal obra As String, ByVal familia As String)
+        'Este informe eta hecho para consumibles a partir de 2022 que no se gestiona su stock en obra debido a alquileres.
+        Try
+            Dim rp As New Report("MOVOBRFEC")
+            Dim filtro As New Filter
+            Dim dt As New DataTable
+
+            '1. Por el uso que hace de la ventana transferencia entre almacenes. IDAlmacen ="Dp19"(Por ejemplo)
+            '2. Por el uso que se hace de alquileres. Almacen Origen = "DP19"
+            Dim teco As New Expertis.Business.ClasesTecozam.OperarioCalendario
+            dt = teco.ejecutarSelect("select * from vFrmCIMovimientos where (IDAlmacen='" & obra & "' OR [Almacen Origen]='" & obra & "') And IDFamilia='" & familia & "' And FechaDocumento>='" & Fecha1 & "' And FechaDocumento<='" & Fecha2 & "'")
+
+            Dim cont As Integer
+            cont = 0
+            For Each dr As DataRow In dt.Rows
+                dt.Rows(cont)("IDAlmacen") = obra
+                cont += 1
+            Next
+            rp.Formulas("Fecha1").Text = Format(Fecha1, "dd-MM-yyyy")
+            rp.Formulas("Fecha2").Text = Format(Fecha2, "dd-MM-yyyy")
+            'Le paso el numero de dias del mes
+
+
+            rp.DataSource = dt
 
             ExpertisApp.OpenReport(rp)
         Catch ex As Exception
