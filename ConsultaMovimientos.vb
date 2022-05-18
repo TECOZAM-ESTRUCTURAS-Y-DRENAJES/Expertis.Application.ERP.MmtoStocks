@@ -946,7 +946,7 @@ Public Class ConsultaMovimientos
             '1. Por el uso que hace de la ventana transferencia entre almacenes. IDAlmacen ="Dp19"(Por ejemplo)
             '2. Por el uso que se hace de alquileres. Almacen Origen = "DP19"
             Dim teco As New Expertis.Business.ClasesTecozam.OperarioCalendario
-            dt = teco.ejecutarSelect("select * from vFrmCIMovimientos where (IDAlmacen='" & obra & "' OR [Almacen Origen]='" & obra & "') And IDFamilia='" & familia & "' And FechaDocumento>='" & Fecha1 & "' And FechaDocumento<='" & Fecha2 & "'")
+            dt = teco.ejecutarSelect("select * from vFrmCIMovimientos where (IDAlmacen='" & obra & "' OR [Almacen Origen]='" & obra & "') And IDFamilia='" & familia & "' And FechaDocumento>='" & Fecha1 & "' And FechaDocumento<='" & Fecha2 & "'  AND CodTipoMovimiento!='S7' AND CodTipoMovimiento!='T-' AND CodTipoMovimiento!='C'")
 
             Dim cont As Integer
             cont = 0
