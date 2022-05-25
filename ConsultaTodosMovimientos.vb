@@ -30,17 +30,71 @@
         Dim Tipo As String
         Dim obra As String
         ' Dim vAnio As Integer
-        Dim cancel As Boolean
-        If e.Alias = "INFENCOFRADO" Then
-            'Abrir Informe de Beneficio2 - informe transferencias encofrado
+        'Dim cancel As Boolean
+        'If e.Alias = "INFENCOFRADO" Then
+        '    'Abrir Informe de Beneficio2 - informe transferencias encofrado
 
+        '    Dim frm As New frmInformeFechaEncofrado
+        '    frm.ShowDialog()
+        '    'vMes = frm.VM
+        '    Fecha1 = frm.FechaDesde.Value
+        '    'vAnio = frm.VA
+        '    Fecha2 = frm.FechaHasta.Value
+        '    'obra = txtNObra.Text
+        '    Familia = AdvFamilia.Text
+
+        '    If frm.blEstado = True Then
+        '        MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        '        e.Cancel = True
+        '        Exit Sub
+        '    End If
+        '    'GenerarInformeBeneficio(CInt(vMes), CInt(vAnio))
+        '    GenerarInformeBeneficio2(CDate(Fecha1), CDate(Fecha2), Familia)
+
+        '    e.Cancel = True
+        'ElseIf e.Alias = "INFENCOTODOS" Then
+        '    Dim frm As New frmInformeFechaEncofrado
+        '    frm.ShowDialog()
+        '    'vMes = frm.VM
+        '    Fecha1 = frm.FechaDesde.Value
+        '    'vAnio = frm.VA
+        '    Fecha2 = frm.FechaHasta.Value
+        '    'obra = txtNObra.Text
+        '    Familia = AdvFamilia.Text
+
+        '    If frm.blEstado = True Then
+        '        MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        '        e.Cancel = True
+        '        Exit Sub
+        '    End If
+        '    'GenerarInformeBeneficio(CInt(vMes), CInt(vAnio))
+        '    GenerarInformeBeneficio5(CDate(Fecha1), CDate(Fecha2), Familia)
+
+        '    e.Cancel = True
+        'ElseIf e.Alias = "IBISPRUEBA" Then
+        '    Dim frm As New frmInformeFechaEncofrado
+        '    frm.ShowDialog()
+        '    'vMes = frm.VM
+        '    Fecha1 = frm.FechaDesde.Value
+        '    'vAnio = frm.VA
+        '    Fecha2 = frm.FechaHasta.Value
+        '    'obra = txtNObra.Text
+        '    Familia = AdvFamilia.Text
+
+        '    If frm.blEstado = True Then
+        '        MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        '        e.Cancel = True
+        '        Exit Sub
+        '    End If
+        '    'GenerarInformeBeneficio(CInt(vMes), CInt(vAnio))
+        '    GenerarInformeBeneficio4(CDate(Fecha1), CDate(Fecha2), Familia)
+
+        '    e.Cancel = True
+        If e.Alias = "INFENCOSUBFAM" Then
             Dim frm As New frmInformeFechaEncofrado
             frm.ShowDialog()
-            'vMes = frm.VM
             Fecha1 = frm.FechaDesde.Value
-            'vAnio = frm.VA
             Fecha2 = frm.FechaHasta.Value
-            'obra = txtNObra.Text
             Familia = AdvFamilia.Text
 
             If frm.blEstado = True Then
@@ -48,42 +102,8 @@
                 e.Cancel = True
                 Exit Sub
             End If
-            'GenerarInformeBeneficio(CInt(vMes), CInt(vAnio))
-            GenerarInformeBeneficio2(CDate(Fecha1), CDate(Fecha2), Familia)
-
-            e.Cancel = True
-        ElseIf e.Alias = "INFENCOTODOS" Then
-            Dim frm As New frmInformeFechaEncofrado
-            frm.ShowDialog()
-            'vMes = frm.VM
-            Fecha1 = frm.FechaDesde.Value
-            'vAnio = frm.VA
-            Fecha2 = frm.FechaHasta.Value
-            'obra = txtNObra.Text
-            Familia = AdvFamilia.Text
-
-            If frm.blEstado = True Then
-                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                e.Cancel = True
-                Exit Sub
-            End If
-            'GenerarInformeBeneficio(CInt(vMes), CInt(vAnio))
-            GenerarInformeBeneficio5(CDate(Fecha1), CDate(Fecha2), Familia)
-
-            e.Cancel = True
-        ElseIf e.Alias = "INFENCOSUBFAM" Then
-            Dim frm As New frmInformeFechaEncofrado
-            frm.ShowDialog()
-            Fecha1 = frm.FechaDesde.Value
-            Fecha2 = frm.FechaHasta.Value
-            Familia = AdvFamilia.Text
-
-            If frm.blEstado = True Then
-                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                e.Cancel = True
-                Exit Sub
-            End If
-            GenerarInformeBeneficioPorSubFamilia(CDate(Fecha1), CDate(Fecha2), Familia)
+            'GenerarInformeBeneficioPorSubFamilia(CDate(Fecha1), CDate(Fecha2), Familia)
+            GenerarInformeBeneficio10(CDate(Fecha1), CDate(Fecha2), Familia)
 
             e.Cancel = True
         ElseIf e.Alias = "INFENCORESUB" Then
@@ -98,10 +118,12 @@
                 e.Cancel = True
                 Exit Sub
             End If
-            GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
+            'GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
+            GenerarInformeBeneficio10Resumen(CDate(Fecha1), CDate(Fecha2), Familia)
 
             e.Cancel = True
         ElseIf e.Alias = "MOVOBRAFECHA" Then
+            MsgBox("Seleccione tipo(30), familia y obra")
             Dim frm As New frmInformeFechaEncofrado
             frm.ShowDialog()
             Fecha1 = frm.FechaDesde.Value
@@ -294,7 +316,7 @@
 
     Private Sub GenerarInformeBeneficio4(ByVal Fecha1 As Date, ByVal Fecha2 As Date, ByVal idfamilia As String)
         'Creo instancia del informe con Alias: INFENCOTODOS
-        Dim rp As New Report("INFENCOTODOS")
+        Dim rp As New Report("IBISPRUEBA")
         Dim filtro As New Filter
         Dim laborables As String
 
@@ -315,7 +337,7 @@
 
 
         'filtro.Add("idfamilia", FilterOperator.Equal, "3010")
-        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND Activo= 1 AND IDFamilia='" & idfamilia & "'"
+        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "' "
         Dim tabla3 As New DataTable
         tabla3 = arti.DevuelveTabla2(strSelect3)
         'rp.DataSource = New BE.DataEngine().Filter("vFrmTransferenciasEncofrados2E4_1", filtro)
@@ -356,7 +378,54 @@
             'MsgBox(strSelect)
             'Dim al As String
             'al = "011"
-            Dim strSelect2 As String = "SELECT * FROM vFrmCIMovimientosE4_1 where FechaDocumento <'" & Fecha1 & "' AND Activo= 1 AND PrecioEstandarA!=0 AND IDFamilia='" & familia & "' AND (CodTipoMovimiento='T-' OR CodTipoMovimiento='T+' OR CodTipoMovimiento='S1') order by IDLineaMovimiento desc"
+
+            'Dim strSelect2 As String = "SELECT * FROM vFrmCIMovimientosE4_1 where FechaDocumento <'" & Fecha1 & "' AND Activo= 1 AND PrecioEstandarA!=0 AND IDFamilia='" & familia & "' AND (CodTipoMovimiento='T-' OR CodTipoMovimiento='T+' OR CodTipoMovimiento='S1') order by IDLineaMovimiento desc"
+            'Dim strSelect2 As String = "SELECT  Max(FechaDocumento) as fecha , IDArticulo, IDAlmacen FROM vFrmCIMovimientosE4_1 where FechaDocumento <'01/04/22' AND Activo= 1  AND PrecioEstandarA!=0 AND IDFamilia='3010' AND (CodTipoMovimiento='T-' OR CodTipoMovimiento='T+' OR CodTipoMovimiento='S1') group by IDArticulo, IDAlmacen"
+
+            Dim strSelect2 As String = "SELECT dbo.tbHistoricoMovimientoE4.IDLineaMovimiento, dbo.tbHistoricoMovimientoE4.IDMovimiento, "
+            strSelect2 &= "dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento, dbo.tbHistoricoMovimientoE4.IDArticulo, dbo.tbMaestroArticuloE4.DescArticulo, "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.Cantidad, dbo.tbHistoricoMovimientoE4.IDAlmacen, dbo.tbHistoricoMovimientoE4.Lote, dbo.tbHistoricoMovimientoE4.Ubicacion, "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.FechaDocumento, dbo.tbHistoricoMovimientoE4.Acumulado, dbo.tbHistoricoMovimientoE4.FechaMovimiento, "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.PrecioA, dbo.tbHistoricoMovimientoE4.PrecioB, dbo.tbMaestroArticuloE4.IDTipo, dbo.tbMaestroArticuloE4.IDFamilia, "
+            strSelect2 &= "dbo.tbMaestroArticuloE4.IDSubfamilia, dbo.tbHistoricoMovimientoE4.IDTipoMovimiento, dbo.tbHistoricoMovimientoE4.Documento, "
+            strSelect2 &= "dbo.tbMaestroArticuloE4.NSerieObligatorio, dbo.tbHistoricoMovimientoE4.IDObra, dbo.tbObraCabeceraE4.NObra, dbo.tbMaestroArticuloE4.ValorReposicionA, "
+            strSelect2 &= "dbo.tbMaestroArticuloE4.PrecioEstandarA "
+            strSelect2 &= "FROM dbo.tbObraCabeceraE4 RIGHT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroTipoMovimientoE4 INNER JOIN "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4 ON dbo.tbMaestroTipoMovimientoE4.IDTipoMovimiento = dbo.tbHistoricoMovimientoE4.IDTipoMovimiento ON "
+            strSelect2 &= "dbo.tbObraCabeceraE4.IDObra = dbo.tbHistoricoMovimientoE4.IDObra LEFT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroArticuloE4 ON dbo.tbHistoricoMovimientoE4.IDArticulo = dbo.tbMaestroArticuloE4.IDArticulo INNER JOIN "
+            strSelect2 &= "dbo.tbMaestroAlmacenE4 ON dbo.tbHistoricoMovimientoE4.IDAlmacen = dbo.tbMaestroAlmacenE4.IDAlmacen INNER JOIN "
+            strSelect2 &= "(SELECT idarticulo, idalmacen, MAX(fechaDocumento) AS fecha "
+            strSelect2 &= "FROM tbhistoricomovimientoE4 "
+            strSelect2 &= "WHERE fechaDocumento <'" & Fecha1 & "' "
+            strSelect2 &= "GROUP BY idarticulo, idalmacen) FechaMaxima ON dbo.tbHistoricoMovimientoE4.IDArticulo = FechaMaxima.idarticulo AND "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.IDAlmacen = FechaMaxima.idalmacen And FechaMaxima.fecha = dbo.tbHistoricoMovimientoE4.FechaDocumento "
+            strSelect2 &= "WHERE (dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'T+' OR "
+            strSelect2 &= "dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'T-' OR dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'S1') AND PrecioEstandarA!=0 AND (dbo.tbMaestroAlmacenE4.Activo = 1) AND (dbo.tbMaestroArticuloE4.IDFamilia = '" & familia & "') "
+            strSelect2 &= "UNION ALL "
+            strSelect2 &= "SELECT dbo.tbHistoricoMovimiento.IDLineaMovimiento, dbo.tbHistoricoMovimiento.IDMovimiento, "
+            strSelect2 &= "dbo.tbMaestroTipoMovimiento.CodTipoMovimiento, dbo.tbHistoricoMovimiento.IDArticulo, dbo.tbMaestroArticulo.DescArticulo, "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.Cantidad, dbo.tbHistoricoMovimiento.IDAlmacen, dbo.tbHistoricoMovimiento.Lote, dbo.tbHistoricoMovimiento.Ubicacion, "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.FechaDocumento, dbo.tbHistoricoMovimiento.Acumulado, dbo.tbHistoricoMovimiento.FechaMovimiento, "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.PrecioA, dbo.tbHistoricoMovimiento.PrecioB, dbo.tbMaestroArticulo.IDTipo, dbo.tbMaestroArticulo.IDFamilia, "
+            strSelect2 &= "dbo.tbMaestroArticulo.IDSubfamilia, dbo.tbHistoricoMovimiento.IDTipoMovimiento, dbo.tbHistoricoMovimiento.Documento, "
+            strSelect2 &= "dbo.tbMaestroArticulo.NSerieObligatorio, dbo.tbHistoricoMovimiento.IDObra, dbo.tbObraCabecera.NObra, dbo.tbMaestroArticulo.ValorReposicionA, "
+            strSelect2 &= "dbo.tbMaestroArticulo.PrecioEstandarA "
+            strSelect2 &= "FROM dbo.tbObraCabecera RIGHT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroTipoMovimiento INNER JOIN "
+            strSelect2 &= "dbo.tbHistoricoMovimiento ON dbo.tbMaestroTipoMovimiento.IDTipoMovimiento = dbo.tbHistoricoMovimiento.IDTipoMovimiento ON "
+            strSelect2 &= "dbo.tbObraCabecera.IDObra = dbo.tbHistoricoMovimiento.IDObra LEFT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroArticulo ON dbo.tbHistoricoMovimiento.IDArticulo = dbo.tbMaestroArticulo.IDArticulo INNER JOIN "
+            strSelect2 &= "dbo.tbMaestroAlmacen ON dbo.tbHistoricoMovimiento.IDAlmacen = dbo.tbMaestroAlmacen.IDAlmacen INNER JOIN "
+            strSelect2 &= "(SELECT idarticulo, idalmacen, MAX(fechaDocumento) AS fecha "
+            strSelect2 &= "FROM tbhistoricomovimiento "
+            strSelect2 &= "WHERE fechaDocumento <'" & Fecha1 & "' "
+            strSelect2 &= "GROUP BY idarticulo, idalmacen) FechaMaxima ON dbo.tbHistoricoMovimiento.IDArticulo = FechaMaxima.idarticulo AND "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.IDAlmacen = FechaMaxima.idalmacen And FechaMaxima.fecha = dbo.tbHistoricoMovimiento.FechaDocumento "
+            strSelect2 &= "WHERE (dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'T+' OR "
+            strSelect2 &= "dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'T-' OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'S1') AND PrecioEstandarA!=0 AND (dbo.tbMaestroAlmacen.Activo = 1) AND (dbo.tbMaestroArticulo.IDFamilia = '" & familia & "') "
+            strSelect2 &= "ORDER BY IDAlmacen, IDArticulo "
 
 
             Dim tabla As New DataTable
@@ -671,5 +740,294 @@
         rp.Formulas("fecha1").Text = Fecha1
         rp.Formulas("fecha2").Text = Fecha2
         ExpertisApp.OpenReport(rp)
+    End Sub
+
+    Private Sub GenerarInformeBeneficio10(ByVal Fecha1 As Date, ByVal Fecha2 As Date, ByVal idfamilia As String)
+        'Creo instancia del informe con Alias: INFENCOTODOS
+        Dim rp As New Report("INFENCOSUBFAM")
+        Dim filtro As New Filter
+        Dim laborables As String
+
+        'Saco los disas laboranles
+
+        laborables = Dias_naturales(Fecha1, Fecha2)
+        'filtro.Add("Nobra", FilterOperator.Equal, obra)
+        'no la paso por el fltro para que me saque todos los datos hasta la fecha que le indique yo.
+        Dim familia As String = idfamilia
+        Dim dFamilia As String
+        Dim arti As New Business.Negocio.Articulo
+        Dim dtFam As DataTable = arti.DevuelveTabla(familia)
+
+        'filtro.Add("fechaMovimiento", FilterOperator.GreaterThanOrEqual, Fecha1)
+        filtro.Add("fechaDocumento", FilterOperator.LessThanOrEqual, Fecha2)
+        filtro.Add("idfamilia", FilterOperator.Equal, familia)
+        filtro.Add("Activo", FilterOperator.Equal, 1)
+
+        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "' "
+        Dim tabla3 As New DataTable
+        tabla3 = arti.DevuelveTabla2(strSelect3)
+
+        For Each dr As DataRow In tabla3.Rows
+            If dr("DescArticulo").ToString.Contains("ELEMENTO") Or dr("DescArticulo").ToString.Contains("ESQUINA") Then
+                dr("IDSubfamilia") = "ELEMENTO MARCO"
+            ElseIf dr("DescArticulo").ToString.Contains("MARCO-TEC") Then
+                dr("IDSubfamilia") = "MARCO-TEC"
+            ElseIf dr("DescArticulo").ToString.Contains("MEDIO MOLDE") Or dr("DescArticulo").ToString.Contains("ZUNCHO") Then
+                dr("IDSubfamilia") = "MEDIO MOLDE"
+            ElseIf dr("DescArticulo").ToString.Contains("PANEL") Then
+                dr("IDSubfamilia") = "ORMA"
+            ElseIf dr("DescArticulo").ToString.Contains("VIGA") Or dr("DescArticulo").ToString.Contains("RIPADO") Then
+                dr("IDSubfamilia") = "VIGA"
+            ElseIf dr("DescArticulo").ToString.Contains("PUNTAL") Or dr("DescArticulo").ToString.Contains("+") Then
+                dr("IDSubfamilia") = "PUNTAL"
+            ElseIf dr("DescArticulo").ToString.Contains("TABICA") Then
+                dr("IDSubfamilia") = "TABICA"
+            ElseIf dr("DescArticulo").ToString.Contains("TORNILLO") Then
+                dr("IDSubfamilia") = "TORNILLO"
+            ElseIf dr("DescArticulo").ToString.Contains("BARANDILLA") Then
+                dr("IDSubfamilia") = "SOPORTES BARANDILLA"
+            ElseIf dr("DescArticulo").ToString.Contains("SOPORTE CONSOLA") Then
+                dr("IDSubfamilia") = "SOPORTE CONSOLA"
+            Else
+                dr("IDSubfamilia") = "OTROS"
+            End If
+
+        Next
+        rp.DataSource = tabla3
+
+        For Each drfam As DataRow In dtFam.Rows
+            dFamilia = drfam(0)
+        Next
+        Try
+            rp.Formulas("laborables").Text = laborables
+            rp.Formulas("fecha1").Text = Fecha1
+            rp.Formulas("fecha2").Text = Fecha2
+            rp.Formulas("Familia").Text = dFamilia
+
+            Dim strSelect2 As String = "SELECT dbo.tbHistoricoMovimientoE4.IDLineaMovimiento, dbo.tbHistoricoMovimientoE4.IDMovimiento, "
+            strSelect2 &= "dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento, dbo.tbHistoricoMovimientoE4.IDArticulo, dbo.tbMaestroArticuloE4.DescArticulo, "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.Cantidad, dbo.tbHistoricoMovimientoE4.IDAlmacen, dbo.tbHistoricoMovimientoE4.Lote, dbo.tbHistoricoMovimientoE4.Ubicacion, "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.FechaDocumento, dbo.tbHistoricoMovimientoE4.Acumulado, dbo.tbHistoricoMovimientoE4.FechaMovimiento, "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.PrecioA, dbo.tbHistoricoMovimientoE4.PrecioB, dbo.tbMaestroArticuloE4.IDTipo, dbo.tbMaestroArticuloE4.IDFamilia, "
+            strSelect2 &= "dbo.tbMaestroArticuloE4.IDSubfamilia, dbo.tbHistoricoMovimientoE4.IDTipoMovimiento, dbo.tbHistoricoMovimientoE4.Documento, "
+            strSelect2 &= "dbo.tbMaestroArticuloE4.NSerieObligatorio, dbo.tbHistoricoMovimientoE4.IDObra, dbo.tbObraCabeceraE4.NObra, dbo.tbMaestroArticuloE4.ValorReposicionA, "
+            strSelect2 &= "dbo.tbMaestroArticuloE4.PrecioEstandarA "
+            strSelect2 &= "FROM dbo.tbObraCabeceraE4 RIGHT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroTipoMovimientoE4 INNER JOIN "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4 ON dbo.tbMaestroTipoMovimientoE4.IDTipoMovimiento = dbo.tbHistoricoMovimientoE4.IDTipoMovimiento ON "
+            strSelect2 &= "dbo.tbObraCabeceraE4.IDObra = dbo.tbHistoricoMovimientoE4.IDObra LEFT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroArticuloE4 ON dbo.tbHistoricoMovimientoE4.IDArticulo = dbo.tbMaestroArticuloE4.IDArticulo INNER JOIN "
+            strSelect2 &= "dbo.tbMaestroAlmacenE4 ON dbo.tbHistoricoMovimientoE4.IDAlmacen = dbo.tbMaestroAlmacenE4.IDAlmacen INNER JOIN "
+            strSelect2 &= "(SELECT idarticulo, idalmacen, MAX(fechaDocumento) AS fecha "
+            strSelect2 &= "FROM tbhistoricomovimientoE4 "
+            strSelect2 &= "WHERE fechaDocumento <'" & Fecha1 & "' "
+            strSelect2 &= "GROUP BY idarticulo, idalmacen) FechaMaxima ON dbo.tbHistoricoMovimientoE4.IDArticulo = FechaMaxima.idarticulo AND "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.IDAlmacen = FechaMaxima.idalmacen And FechaMaxima.fecha = dbo.tbHistoricoMovimientoE4.FechaDocumento "
+            strSelect2 &= "WHERE (dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'T+' OR "
+            strSelect2 &= "dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'T-' OR dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'S1' OR dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'S7') AND PrecioEstandarA!=0 AND (dbo.tbMaestroAlmacenE4.Activo = 1) AND (dbo.tbMaestroArticuloE4.IDFamilia = '" & familia & "') "
+            strSelect2 &= "UNION ALL "
+            strSelect2 &= "SELECT dbo.tbHistoricoMovimiento.IDLineaMovimiento, dbo.tbHistoricoMovimiento.IDMovimiento, "
+            strSelect2 &= "dbo.tbMaestroTipoMovimiento.CodTipoMovimiento, dbo.tbHistoricoMovimiento.IDArticulo, dbo.tbMaestroArticulo.DescArticulo, "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.Cantidad, dbo.tbHistoricoMovimiento.IDAlmacen, dbo.tbHistoricoMovimiento.Lote, dbo.tbHistoricoMovimiento.Ubicacion, "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.FechaDocumento, dbo.tbHistoricoMovimiento.Acumulado, dbo.tbHistoricoMovimiento.FechaMovimiento, "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.PrecioA, dbo.tbHistoricoMovimiento.PrecioB, dbo.tbMaestroArticulo.IDTipo, dbo.tbMaestroArticulo.IDFamilia, "
+            strSelect2 &= "dbo.tbMaestroArticulo.IDSubfamilia, dbo.tbHistoricoMovimiento.IDTipoMovimiento, dbo.tbHistoricoMovimiento.Documento, "
+            strSelect2 &= "dbo.tbMaestroArticulo.NSerieObligatorio, dbo.tbHistoricoMovimiento.IDObra, dbo.tbObraCabecera.NObra, dbo.tbMaestroArticulo.ValorReposicionA, "
+            strSelect2 &= "dbo.tbMaestroArticulo.PrecioEstandarA "
+            strSelect2 &= "FROM dbo.tbObraCabecera RIGHT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroTipoMovimiento INNER JOIN "
+            strSelect2 &= "dbo.tbHistoricoMovimiento ON dbo.tbMaestroTipoMovimiento.IDTipoMovimiento = dbo.tbHistoricoMovimiento.IDTipoMovimiento ON "
+            strSelect2 &= "dbo.tbObraCabecera.IDObra = dbo.tbHistoricoMovimiento.IDObra LEFT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroArticulo ON dbo.tbHistoricoMovimiento.IDArticulo = dbo.tbMaestroArticulo.IDArticulo INNER JOIN "
+            strSelect2 &= "dbo.tbMaestroAlmacen ON dbo.tbHistoricoMovimiento.IDAlmacen = dbo.tbMaestroAlmacen.IDAlmacen INNER JOIN "
+            strSelect2 &= "(SELECT idarticulo, idalmacen, MAX(fechaDocumento) AS fecha "
+            strSelect2 &= "FROM tbhistoricomovimiento "
+            strSelect2 &= "WHERE fechaDocumento <'" & Fecha1 & "' "
+            strSelect2 &= "GROUP BY idarticulo, idalmacen) FechaMaxima ON dbo.tbHistoricoMovimiento.IDArticulo = FechaMaxima.idarticulo AND "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.IDAlmacen = FechaMaxima.idalmacen And FechaMaxima.fecha = dbo.tbHistoricoMovimiento.FechaDocumento "
+            strSelect2 &= "WHERE (dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'T+' OR "
+            strSelect2 &= "dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'T-' OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'S1' OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'S7') AND PrecioEstandarA!=0 AND (dbo.tbMaestroAlmacen.Activo = 1) AND (dbo.tbMaestroArticulo.IDFamilia = '" & familia & "') "
+            strSelect2 &= "ORDER BY IDAlmacen, IDArticulo, FechaDocumento desc, IDLineaMovimiento desc"
+
+
+            Dim tabla As New DataTable
+            tabla = arti.DevuelveTabla2(strSelect2)
+            For Each dr As DataRow In tabla.Rows
+                If dr("DescArticulo").ToString.Contains("ELEMENTO") Or dr("DescArticulo").ToString.Contains("ESQUINA") Then
+                    dr("IDSubfamilia") = "ELEMENTO MARCO"
+                ElseIf dr("DescArticulo").ToString.Contains("MARCO-TEC") Then
+                    dr("IDSubfamilia") = "MARCO-TEC"
+                ElseIf dr("DescArticulo").ToString.Contains("MEDIO MOLDE") Or dr("DescArticulo").ToString.Contains("ZUNCHO") Then
+                    dr("IDSubfamilia") = "MEDIO MOLDE"
+                ElseIf dr("DescArticulo").ToString.Contains("PANEL") Then
+                    dr("IDSubfamilia") = "ORMA"
+                ElseIf dr("DescArticulo").ToString.Contains("VIGA") Or dr("DescArticulo").ToString.Contains("RIPADO") Then
+                    dr("IDSubfamilia") = "VIGA"
+                ElseIf dr("DescArticulo").ToString.Contains("PUNTAL") Or dr("DescArticulo").ToString.Contains("+") Then
+                    dr("IDSubfamilia") = "PUNTAL"
+                ElseIf dr("DescArticulo").ToString.Contains("TABICA") Then
+                    dr("IDSubfamilia") = "TABICA"
+                ElseIf dr("DescArticulo").ToString.Contains("TORNILLO") Then
+                    dr("IDSubfamilia") = "TORNILLO"
+                ElseIf dr("DescArticulo").ToString.Contains("BARANDILLA") Then
+                    dr("IDSubfamilia") = "SOPORTES BARANDILLA"
+                ElseIf dr("DescArticulo").ToString.Contains("SOPORTE CONSOLA") Then
+                    dr("IDSubfamilia") = "SOPORTE CONSOLA"
+                Else
+                    dr("IDSubfamilia") = "OTROS"
+                End If
+
+            Next
+            rp.Subreports("acumuladoMesAnt").DataSource = tabla
+            rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
+
+            ExpertisApp.OpenReport(rp)
+        Catch ex As SqlClient.SqlException
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+    Private Sub GenerarInformeBeneficio10Resumen(ByVal Fecha1 As Date, ByVal Fecha2 As Date, ByVal idfamilia As String)
+        'Creo instancia del informe con Alias: INFENCORESUB
+        Dim rp As New Report("INFENCORESUB")
+        Dim filtro As New Filter
+        Dim laborables As String
+
+        'Saco los disas laboranles
+
+        laborables = Dias_naturales(Fecha1, Fecha2)
+        'filtro.Add("Nobra", FilterOperator.Equal, obra)
+        'no la paso por el fltro para que me saque todos los datos hasta la fecha que le indique yo.
+        Dim familia As String = idfamilia
+        Dim dFamilia As String
+        Dim arti As New Business.Negocio.Articulo
+        Dim dtFam As DataTable = arti.DevuelveTabla(familia)
+
+        'filtro.Add("fechaMovimiento", FilterOperator.GreaterThanOrEqual, Fecha1)
+        filtro.Add("fechaDocumento", FilterOperator.LessThanOrEqual, Fecha2)
+        filtro.Add("idfamilia", FilterOperator.Equal, familia)
+        filtro.Add("Activo", FilterOperator.Equal, 1)
+
+        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "' "
+        Dim tabla3 As New DataTable
+        tabla3 = arti.DevuelveTabla2(strSelect3)
+
+        For Each dr As DataRow In tabla3.Rows
+            If dr("DescArticulo").ToString.Contains("ELEMENTO") Or dr("DescArticulo").ToString.Contains("ESQUINA") Then
+                dr("IDSubfamilia") = "ELEMENTO MARCO"
+            ElseIf dr("DescArticulo").ToString.Contains("MARCO-TEC") Then
+                dr("IDSubfamilia") = "MARCO-TEC"
+            ElseIf dr("DescArticulo").ToString.Contains("MEDIO MOLDE") Or dr("DescArticulo").ToString.Contains("ZUNCHO") Then
+                dr("IDSubfamilia") = "MEDIO MOLDE"
+            ElseIf dr("DescArticulo").ToString.Contains("PANEL") Then
+                dr("IDSubfamilia") = "ORMA"
+            ElseIf dr("DescArticulo").ToString.Contains("VIGA") Or dr("DescArticulo").ToString.Contains("RIPADO") Then
+                dr("IDSubfamilia") = "VIGA"
+            ElseIf dr("DescArticulo").ToString.Contains("PUNTAL") Or dr("DescArticulo").ToString.Contains("+") Then
+                dr("IDSubfamilia") = "PUNTAL"
+            ElseIf dr("DescArticulo").ToString.Contains("TABICA") Then
+                dr("IDSubfamilia") = "TABICA"
+            ElseIf dr("DescArticulo").ToString.Contains("TORNILLO") Then
+                dr("IDSubfamilia") = "TORNILLO"
+            ElseIf dr("DescArticulo").ToString.Contains("BARANDILLA") Then
+                dr("IDSubfamilia") = "SOPORTES BARANDILLA"
+            ElseIf dr("DescArticulo").ToString.Contains("SOPORTE CONSOLA") Then
+                dr("IDSubfamilia") = "SOPORTE CONSOLA"
+            Else
+                dr("IDSubfamilia") = "OTROS"
+            End If
+
+        Next
+        rp.DataSource = tabla3
+
+        For Each drfam As DataRow In dtFam.Rows
+            dFamilia = drfam(0)
+        Next
+        Try
+            rp.Formulas("laborables").Text = laborables
+            rp.Formulas("fecha1").Text = Fecha1
+            rp.Formulas("fecha2").Text = Fecha2
+            rp.Formulas("Familia").Text = dFamilia
+
+            Dim strSelect2 As String = "SELECT dbo.tbHistoricoMovimientoE4.IDLineaMovimiento, dbo.tbHistoricoMovimientoE4.IDMovimiento, "
+            strSelect2 &= "dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento, dbo.tbHistoricoMovimientoE4.IDArticulo, dbo.tbMaestroArticuloE4.DescArticulo, "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.Cantidad, dbo.tbHistoricoMovimientoE4.IDAlmacen, dbo.tbHistoricoMovimientoE4.Lote, dbo.tbHistoricoMovimientoE4.Ubicacion, "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.FechaDocumento, dbo.tbHistoricoMovimientoE4.Acumulado, dbo.tbHistoricoMovimientoE4.FechaMovimiento, "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.PrecioA, dbo.tbHistoricoMovimientoE4.PrecioB, dbo.tbMaestroArticuloE4.IDTipo, dbo.tbMaestroArticuloE4.IDFamilia, "
+            strSelect2 &= "dbo.tbMaestroArticuloE4.IDSubfamilia, dbo.tbHistoricoMovimientoE4.IDTipoMovimiento, dbo.tbHistoricoMovimientoE4.Documento, "
+            strSelect2 &= "dbo.tbMaestroArticuloE4.NSerieObligatorio, dbo.tbHistoricoMovimientoE4.IDObra, dbo.tbObraCabeceraE4.NObra, dbo.tbMaestroArticuloE4.ValorReposicionA, "
+            strSelect2 &= "dbo.tbMaestroArticuloE4.PrecioEstandarA "
+            strSelect2 &= "FROM dbo.tbObraCabeceraE4 RIGHT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroTipoMovimientoE4 INNER JOIN "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4 ON dbo.tbMaestroTipoMovimientoE4.IDTipoMovimiento = dbo.tbHistoricoMovimientoE4.IDTipoMovimiento ON "
+            strSelect2 &= "dbo.tbObraCabeceraE4.IDObra = dbo.tbHistoricoMovimientoE4.IDObra LEFT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroArticuloE4 ON dbo.tbHistoricoMovimientoE4.IDArticulo = dbo.tbMaestroArticuloE4.IDArticulo INNER JOIN "
+            strSelect2 &= "dbo.tbMaestroAlmacenE4 ON dbo.tbHistoricoMovimientoE4.IDAlmacen = dbo.tbMaestroAlmacenE4.IDAlmacen INNER JOIN "
+            strSelect2 &= "(SELECT idarticulo, idalmacen, MAX(fechaDocumento) AS fecha "
+            strSelect2 &= "FROM tbhistoricomovimientoE4 "
+            strSelect2 &= "WHERE fechaDocumento <'" & Fecha1 & "' "
+            strSelect2 &= "GROUP BY idarticulo, idalmacen) FechaMaxima ON dbo.tbHistoricoMovimientoE4.IDArticulo = FechaMaxima.idarticulo AND "
+            strSelect2 &= "dbo.tbHistoricoMovimientoE4.IDAlmacen = FechaMaxima.idalmacen And FechaMaxima.fecha = dbo.tbHistoricoMovimientoE4.FechaDocumento "
+            strSelect2 &= "WHERE (dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'T+' OR "
+            strSelect2 &= "dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'T-' OR dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'S1' OR dbo.tbMaestroTipoMovimientoE4.CodTipoMovimiento = 'S7') AND PrecioEstandarA!=0 AND (dbo.tbMaestroAlmacenE4.Activo = 1) AND (dbo.tbMaestroArticuloE4.IDFamilia = '" & familia & "') "
+            strSelect2 &= "UNION ALL "
+            strSelect2 &= "SELECT dbo.tbHistoricoMovimiento.IDLineaMovimiento, dbo.tbHistoricoMovimiento.IDMovimiento, "
+            strSelect2 &= "dbo.tbMaestroTipoMovimiento.CodTipoMovimiento, dbo.tbHistoricoMovimiento.IDArticulo, dbo.tbMaestroArticulo.DescArticulo, "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.Cantidad, dbo.tbHistoricoMovimiento.IDAlmacen, dbo.tbHistoricoMovimiento.Lote, dbo.tbHistoricoMovimiento.Ubicacion, "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.FechaDocumento, dbo.tbHistoricoMovimiento.Acumulado, dbo.tbHistoricoMovimiento.FechaMovimiento, "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.PrecioA, dbo.tbHistoricoMovimiento.PrecioB, dbo.tbMaestroArticulo.IDTipo, dbo.tbMaestroArticulo.IDFamilia, "
+            strSelect2 &= "dbo.tbMaestroArticulo.IDSubfamilia, dbo.tbHistoricoMovimiento.IDTipoMovimiento, dbo.tbHistoricoMovimiento.Documento, "
+            strSelect2 &= "dbo.tbMaestroArticulo.NSerieObligatorio, dbo.tbHistoricoMovimiento.IDObra, dbo.tbObraCabecera.NObra, dbo.tbMaestroArticulo.ValorReposicionA, "
+            strSelect2 &= "dbo.tbMaestroArticulo.PrecioEstandarA "
+            strSelect2 &= "FROM dbo.tbObraCabecera RIGHT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroTipoMovimiento INNER JOIN "
+            strSelect2 &= "dbo.tbHistoricoMovimiento ON dbo.tbMaestroTipoMovimiento.IDTipoMovimiento = dbo.tbHistoricoMovimiento.IDTipoMovimiento ON "
+            strSelect2 &= "dbo.tbObraCabecera.IDObra = dbo.tbHistoricoMovimiento.IDObra LEFT OUTER JOIN "
+            strSelect2 &= "dbo.tbMaestroArticulo ON dbo.tbHistoricoMovimiento.IDArticulo = dbo.tbMaestroArticulo.IDArticulo INNER JOIN "
+            strSelect2 &= "dbo.tbMaestroAlmacen ON dbo.tbHistoricoMovimiento.IDAlmacen = dbo.tbMaestroAlmacen.IDAlmacen INNER JOIN "
+            strSelect2 &= "(SELECT idarticulo, idalmacen, MAX(fechaDocumento) AS fecha "
+            strSelect2 &= "FROM tbhistoricomovimiento "
+            strSelect2 &= "WHERE fechaDocumento <'" & Fecha1 & "' "
+            strSelect2 &= "GROUP BY idarticulo, idalmacen) FechaMaxima ON dbo.tbHistoricoMovimiento.IDArticulo = FechaMaxima.idarticulo AND "
+            strSelect2 &= "dbo.tbHistoricoMovimiento.IDAlmacen = FechaMaxima.idalmacen And FechaMaxima.fecha = dbo.tbHistoricoMovimiento.FechaDocumento "
+            strSelect2 &= "WHERE (dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'T+' OR "
+            strSelect2 &= "dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'T-' OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'S1' OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'S7') AND PrecioEstandarA!=0 AND (dbo.tbMaestroAlmacen.Activo = 1) AND (dbo.tbMaestroArticulo.IDFamilia = '" & familia & "') "
+            strSelect2 &= "ORDER BY IDAlmacen, IDArticulo, FechaDocumento desc, IDLineaMovimiento desc"
+
+
+            Dim tabla As New DataTable
+            tabla = arti.DevuelveTabla2(strSelect2)
+            For Each dr As DataRow In tabla.Rows
+                If dr("DescArticulo").ToString.Contains("ELEMENTO") Or dr("DescArticulo").ToString.Contains("ESQUINA") Then
+                    dr("IDSubfamilia") = "ELEMENTO MARCO"
+                ElseIf dr("DescArticulo").ToString.Contains("MARCO-TEC") Then
+                    dr("IDSubfamilia") = "MARCO-TEC"
+                ElseIf dr("DescArticulo").ToString.Contains("MEDIO MOLDE") Or dr("DescArticulo").ToString.Contains("ZUNCHO") Then
+                    dr("IDSubfamilia") = "MEDIO MOLDE"
+                ElseIf dr("DescArticulo").ToString.Contains("PANEL") Then
+                    dr("IDSubfamilia") = "ORMA"
+                ElseIf dr("DescArticulo").ToString.Contains("VIGA") Or dr("DescArticulo").ToString.Contains("RIPADO") Then
+                    dr("IDSubfamilia") = "VIGA"
+                ElseIf dr("DescArticulo").ToString.Contains("PUNTAL") Or dr("DescArticulo").ToString.Contains("+") Then
+                    dr("IDSubfamilia") = "PUNTAL"
+                ElseIf dr("DescArticulo").ToString.Contains("TABICA") Then
+                    dr("IDSubfamilia") = "TABICA"
+                ElseIf dr("DescArticulo").ToString.Contains("TORNILLO") Then
+                    dr("IDSubfamilia") = "TORNILLO"
+                ElseIf dr("DescArticulo").ToString.Contains("BARANDILLA") Then
+                    dr("IDSubfamilia") = "SOPORTES BARANDILLA"
+                ElseIf dr("DescArticulo").ToString.Contains("SOPORTE CONSOLA") Then
+                    dr("IDSubfamilia") = "SOPORTE CONSOLA"
+                Else
+                    dr("IDSubfamilia") = "OTROS"
+                End If
+
+            Next
+            rp.Subreports("acumuladoMesAnt").DataSource = tabla
+            rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
+
+            ExpertisApp.OpenReport(rp)
+        Catch ex As SqlClient.SqlException
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class
