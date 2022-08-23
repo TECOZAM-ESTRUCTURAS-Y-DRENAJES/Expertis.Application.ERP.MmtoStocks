@@ -1320,7 +1320,7 @@ Public Class MovimientoManual
                             If IsDBNull(dr(3)) = False Then
                                 'Grid1.RetrieveStructure()
                                 dr2 = dt2.NewRow
-                                dr2("IDTipoMovimiento") = 3
+                                dr2("IDTipoMovimiento") = cboTipoMovimiento.Value
                                 dr2("IDArticulo") = dr(0)
                                 dr2("DescArticulo") = dr(1)
                                 dr2("IDAlmacen") = dr(2)
