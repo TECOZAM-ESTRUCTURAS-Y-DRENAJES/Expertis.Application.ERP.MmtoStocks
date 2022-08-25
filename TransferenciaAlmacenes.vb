@@ -13,6 +13,7 @@ Public Class TransferenciaAlmacenes
     Private MBlnAdding As Boolean = False
 
     Private Const mcOrigen As Integer = -1
+    Friend WithEvents btExcel As Solmicro.Expertis.Engine.UI.Button
     Private Const mcDestino As Integer = 1
 
 #Region " Código generado por el Diseñador de Windows Forms "
@@ -116,6 +117,7 @@ Public Class TransferenciaAlmacenes
         Me.RightRebar1 = New Janus.Windows.UI.CommandBars.UIRebar
         Me.TopRebar1 = New Janus.Windows.UI.CommandBars.UIRebar
         Me.Icons = New System.Windows.Forms.ImageList(Me.components)
+        Me.btExcel = New Solmicro.Expertis.Engine.UI.Button
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UiCommandManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BottomRebar1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,7 +142,7 @@ Public Class TransferenciaAlmacenes
         Me.Grid.Name = "Grid"
         Me.Grid.PrimaryDataFields = Nothing
         Me.Grid.SecondaryDataFields = Nothing
-        Me.Grid.Size = New System.Drawing.Size(634, 362)
+        Me.Grid.Size = New System.Drawing.Size(628, 389)
         Me.Grid.TabIndex = 2
         Me.Grid.ViewName = Nothing
         '
@@ -210,7 +212,7 @@ Public Class TransferenciaAlmacenes
         Me.TopRebar1.Dock = System.Windows.Forms.DockStyle.Top
         Me.TopRebar1.Location = New System.Drawing.Point(0, 0)
         Me.TopRebar1.Name = "TopRebar1"
-        Me.TopRebar1.Size = New System.Drawing.Size(634, 28)
+        Me.TopRebar1.Size = New System.Drawing.Size(628, 28)
         '
         'Icons
         '
@@ -219,10 +221,20 @@ Public Class TransferenciaAlmacenes
         Me.Icons.Images.SetKeyName(0, "")
         Me.Icons.Images.SetKeyName(1, "")
         '
+        'btExcel
+        '
+        Me.btExcel.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btExcel.Location = New System.Drawing.Point(0, 394)
+        Me.btExcel.Name = "btExcel"
+        Me.btExcel.Size = New System.Drawing.Size(628, 23)
+        Me.btExcel.TabIndex = 3
+        Me.btExcel.Text = "Carga Datos"
+        '
         'TransferenciaAlmacenes
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(6, 14)
-        Me.ClientSize = New System.Drawing.Size(634, 390)
+        Me.ClientSize = New System.Drawing.Size(628, 417)
+        Me.Controls.Add(Me.btExcel)
         Me.Controls.Add(Me.Grid)
         Me.Controls.Add(Me.TopRebar1)
         Me.Name = "TransferenciaAlmacenes"
@@ -386,7 +398,7 @@ Public Class TransferenciaAlmacenes
                     Case "IDArticulo"
                         e.Column.ButtonStyle = ButtonStyle.Image
                     Case "IDAlmacenOrigen", "IDAlmacenDestino"
-                        If length(Grid.GetValue("IDArticulo")) = 0 Then
+                        If Length(Grid.GetValue("IDArticulo")) = 0 Then
                             e.Cancel = True
                             e.Column.ButtonStyle = ButtonStyle.NoButton
                         Else
@@ -946,7 +958,12 @@ Public Class TransferenciaAlmacenes
                                 If EstaActualizado(aux) Then
                                     row.BeginEdit()
                                     row.Cells("Actualizado").Value = True
-                                    row.EndEdit()
+                                    Try
+                                        row.EndEdit()
+                                    Catch ex As Exception
+
+                                    End Try
+
                                 End If
                             End If
                         End If
@@ -1021,4 +1038,155 @@ Public Class TransferenciaAlmacenes
         End Select
     End Sub
 
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        MessageBox.Show("Hola")
+    End Sub
+
+
+    Private Sub btExcel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btExcel.Click
+        Dim ruta As String = ""
+        Dim hoja As String = 1
+        Dim rango As String = ""
+
+        Dim openFD As New OpenFileDialog()
+        With openFD
+            .Title = "Seleccionar archivos"
+            .Filter = "Archivos Excel(*.xls;*.xlsx)|*.xls;*xlsx|Todos los archivos(*.*)|*.*"
+            .Multiselect = False
+            .InitialDirectory = My.Computer.FileSystem.SpecialDirectories.Desktop
+            If .ShowDialog = Windows.Forms.DialogResult.OK Then
+                Dim control As Integer = 0
+                Try
+                    ruta = openFD.FileName
+                    hoja = "Hoja1"
+                    rango = "A1:E500"
+                    Dim dt As DataTable = ObtenerDatosExcel(ruta, hoja, rango)
+
+                    'Recorro la tabla y compruebo el stock en el almacén origen del articulo y la cantidad que sale y si es menor lo notifica
+                    Dim i As Integer = 0
+
+                    For Each filas As DataRow In dt.Rows
+                        Dim tbstockalmc As New DataTable
+                        Dim filtro As New Filter
+
+                        filtro.Add("IDArticulo", FilterOperator.Equal, dt.Rows(i)("IDArticulo"))
+                        filtro.Add("IDAlmacen", FilterOperator.Equal, dt.Rows(i)("IDAlmacenOrigen"))
+                        tbstockalmc = New BE.DataEngine().Filter("tbMaestroArticuloAlmacen", filtro)
+
+                        'If tbstockalmc.Rows.Count = 0 Or tbstockalmc.Rows(0)("StockFisico") <= dt.Rows(i)("Cantidad") Then
+                        If tbstockalmc.Rows.Count = 0 Then
+                            ExpertisApp.GenerateMessage("No hay stock suficiente del articulo " & dt.Rows(i)("IDArticulo") & " para generar el movimiento.")
+                            Exit Sub
+                        Else
+                            If tbstockalmc.Rows(0)("StockFisico") <= dt.Rows(i)("Cantidad") Then
+                                ExpertisApp.GenerateMessage("No hay stock suficiente del articulo " & dt.Rows(i)("IDArticulo") & " para generar el movimiento.")
+                                Exit Sub
+                            End If
+                        End If
+                        i += 1
+                    Next
+
+                    Dim dt2 As New DataTable
+                    dt2.Columns.Add("IDArticulo")
+                    dt2.Columns.Add("DescArticulo")
+                    dt2.Columns.Add("IDAlmacenOrigen")
+                    dt2.Columns.Add("DescAlmacenOrigen")
+                    dt2.Columns.Add("StockFisicoOrigen")
+                    dt2.Columns.Add("Cantidad")
+                    dt2.Columns.Add("IDAlmacenDestino")
+                    dt2.Columns.Add("DescAlmacenDestino")
+                    dt2.Columns.Add("StockFisicoDestino")
+                    dt2.Columns.Add("Actualizado")
+                    dt2.Columns.Add("FechaDocumento")
+
+                    Dim dr2 As DataRow
+                    For Each dr As DataRow In dt.Rows
+                        'MessageBox.Show(dr(0) & " , " & dr(2) & " , " & dr(7))
+                        If IsDBNull(dr(0)) Then
+                        Else
+                            If IsDBNull(dr(4)) = False Then
+                                dr2 = dt2.NewRow
+                                dr2("IDArticulo") = dr(0)
+                                'Segun el IDArticulo saco la Desc
+                                Dim tbart As New DataTable
+                                Dim filtro1 As New Filter
+
+                                filtro1.Add("IDArticulo", FilterOperator.Equal, dr(0))
+                                tbart = New BE.DataEngine().Filter("tbMaestroArticulo", filtro1)
+                                dr2("DescArticulo") = tbart.Rows(0)("DescArticulo")
+
+                                dr2("IDAlmacenOrigen") = dr(1)
+                                'Según el IDAlmacen saco la descripcion
+                                Dim tbalm As New DataTable
+                                Dim filtro2 As New Filter
+
+                                filtro2.Add("IDAlmacen", FilterOperator.Equal, dr(1))
+                                tbalm = New BE.DataEngine().Filter("tbMaestroAlmacen", filtro2)
+                                dr2("DescAlmacenOrigen") = tbalm.Rows(0)("DescAlmacen")
+                                'Saco el Stock Fisico del articulo en el almacen origen
+                                Try
+                                    Dim tbstockalmc As New DataTable
+                                    Dim filtro As New Filter
+                                    filtro.Add("IDArticulo", FilterOperator.Equal, dr2("IDArticulo"))
+                                    filtro.Add("IDAlmacen", FilterOperator.Equal, dr2("IDAlmacenOrigen"))
+                                    tbstockalmc = New BE.DataEngine().Filter("tbMaestroArticuloAlmacen", filtro)
+                                    dr2("StockFisicoOrigen") = tbstockalmc.Rows(0)("StockFisico")
+                                Catch ex As Exception
+                                    dr2("StockFisicoOrigen") = 0
+                                End Try
+                               
+
+                                dr2("Cantidad") = dr(2)
+                                dr2("IDAlmacenDestino") = dr(3)
+                                'Según el IDAlmacen saco la descripcion
+                                Dim tbalm2 As New DataTable
+                                Dim filtro22 As New Filter
+
+                                filtro22.Add("IDAlmacen", FilterOperator.Equal, dr(3))
+                                tbalm2 = New BE.DataEngine().Filter("tbMaestroAlmacen", filtro22)
+                                dr2("DescAlmacenDestino") = tbalm2.Rows(0)("DescAlmacen")
+                                'Saco el Stock Fisico del articulo en el almacen destino
+                                Try
+                                    Dim tbstockalmcdest As New DataTable
+                                    Dim filtrodest As New Filter
+                                    filtrodest.Add("IDArticulo", FilterOperator.Equal, dr2("IDArticulo"))
+                                    filtrodest.Add("IDAlmacen", FilterOperator.Equal, dr2("IDAlmacenDestino"))
+                                    tbstockalmcdest = New BE.DataEngine().Filter("tbMaestroArticuloAlmacen", filtrodest)
+                                    dr2("StockFisicoDestino") = tbstockalmcdest.Rows(0)("StockFisico")
+                                Catch ex As Exception
+                                    dr2("StockFisicoDestino") = 0
+                                End Try
+
+                                dr2("Actualizado") = 0
+                                dr2("FechaDocumento") = dr(4)
+                                dt2.Rows.Add(dr2)
+                                control = control + 1
+                            End If
+                        End If
+                    Next
+
+                    Grid.DataSource = dt2
+                Catch ex As Exception
+                    MessageBox.Show("Error. No hay más datos que añadir. ")
+                End Try
+            End If
+        End With
+    End Sub
+    Public Function ObtenerDatosExcel(ByVal ruta As String, ByVal hoja As String, ByVal rango As String) As DataTable
+        Dim MyConnection As System.Data.OleDb.OleDbConnection
+        Dim DtSet As System.Data.DataSet
+        Dim MyCommand As System.Data.OleDb.OleDbDataAdapter
+        MyConnection = New System.Data.OleDb.OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" & ruta & "';Extended Properties=Excel 12.0;")
+        MyCommand = New System.Data.OleDb.OleDbDataAdapter("select * from [" & hoja & "$" & rango & "]", MyConnection)
+        'MyCommand.TableMappings.Add("Table", "Net-informations.com")
+        DtSet = New System.Data.DataSet
+        MyCommand.Fill(DtSet)
+        Dim dt As DataTable = DtSet.Tables(0)
+        MyConnection.Close()
+
+        Return dt
+
+
+
+    End Function
 End Class
