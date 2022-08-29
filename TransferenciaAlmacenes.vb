@@ -1078,7 +1078,7 @@ Public Class TransferenciaAlmacenes
                             ExpertisApp.GenerateMessage("No hay stock suficiente del articulo " & dt.Rows(i)("IDArticulo") & " para generar el movimiento.")
                             Exit Sub
                         Else
-                            If tbstockalmc.Rows(0)("StockFisico") <= dt.Rows(i)("Cantidad") Then
+                            If tbstockalmc.Rows(0)("StockFisico") < dt.Rows(i)("Cantidad") Then
                                 ExpertisApp.GenerateMessage("No hay stock suficiente del articulo " & dt.Rows(i)("IDArticulo") & " para generar el movimiento.")
                                 Exit Sub
                             End If
