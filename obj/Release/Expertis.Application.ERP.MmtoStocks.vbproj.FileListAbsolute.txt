@@ -86,3 +86,4 @@ C:\ExpertisNet50R2\Bin\Expertis.Application.ERP.MmtoStocks.pdb
 C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.frmInformeFechaEncofrado.resources
 C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaTodosMovimientos.resources
 C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TodosMovimientosAlmacenes.resources
+C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.frmInformeFechaFamilia.resources

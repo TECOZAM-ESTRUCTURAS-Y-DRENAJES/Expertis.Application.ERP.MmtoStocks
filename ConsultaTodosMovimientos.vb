@@ -173,6 +173,53 @@
             GenerarInformeMovimientos("MOVOBRAFECHA", CDate(Fecha1), CDate(Fecha2), Familia, obra, Tipo)
 
             e.Cancel = True
+        ElseIf e.Alias = "MOVFERR" Then
+            Dim frm As New frmInformeFechaFamilia
+            frm.ShowDialog()
+
+            Familia = frm.cbFamilia.Text
+            obra = frm.AdvAlmacen.Value
+            Dim valorado As Boolean
+            valorado = frm.cbValorado.Checked
+
+            Dim sql As String
+            Dim tabla As New DataTable
+            Dim arti As New Business.Negocio.Articulo
+            'Si es Ferreteria
+            If Familia = 2001 Then
+                sql = "select CodTipoMovimiento, IDArticulo, DescArticulo, Cantidad, IDAlmacen, Documento, FechaDocumento, IDTipo, IDFamilia, ValorReposicionA, PrecioEstandarA, IDUdInterna "
+                sql &= "from xtecozam50r2..vFrmCIMovimientosE4 where (IDFamilia='2001' OR IDFamilia='0201') AND IDAlmacen='" & obra & "' AND FechaDocumento<'01/01/2022' "
+                sql &= "UNION ALL "
+                sql &= "select CodTipoMovimiento, IDArticulo, DescArticulo, Abs(Cantidad), IDAlmacen, Documento, FechaDocumento, IDTipo, IDFamilia, ValorReposicionA, PrecioEstandarA, IDUdInterna "
+                sql &= "from xtecozam50r2..vFrmCIMovimientos "
+                sql &= "where (IDFamilia='2001' OR IDFamilia='0201') AND (IDAlmacen='" & obra & "' OR NObra='alq-" & obra & "') AND FechaDocumento <'16/06/2022' "
+                sql &= "UNION ALL "
+                sql &= "select CodTipoMovimiento, IDArticulo, DescArticulo, Cantidad, IDAlmacen, Documento, FechaDocumento, IDTipo, IDFamilia, ValorReposicionA, PrecioEstandarA, IDUdInterna "
+                sql &= "from xtecozam50r2..vFrmCIMovimientos "
+                sql &= "where (IDFamilia='2001' OR IDFamilia='0201') AND (IDAlmacen='" & obra & "' OR NObra='alq-" & obra & "') AND FechaDocumento >='16/06/2022' AND CodTipoMovimiento!='S1'  order by FechaDocumento"
+
+                tabla = arti.DevuelveTabla2(sql)
+                'Si es Madera
+            Else
+                sql = "select CodTipoMovimiento, IDArticulo, DescArticulo, Cantidad, IDAlmacen, Documento, FechaDocumento, IDTipo, IDFamilia, ValorReposicionA, PrecioEstandarA, IDUdInterna "
+                sql &= "from xtecozam50r2..vFrmCIMovimientosE4 where (IDFamilia='2002' OR IDFamilia='0202') AND IDAlmacen='" & obra & "' AND FechaDocumento<'01/01/2022' "
+                sql &= "UNION ALL "
+                sql &= "select CodTipoMovimiento, IDArticulo, DescArticulo, Abs(Cantidad), IDAlmacen, Documento, FechaDocumento, IDTipo, IDFamilia, ValorReposicionA, PrecioEstandarA, IDUdInterna "
+                sql &= "from xtecozam50r2..vFrmCIMovimientos "
+                sql &= "where (IDFamilia='2002' OR IDFamilia='0202') AND (IDAlmacen='" & obra & "' OR NObra='alq-" & obra & "') AND FechaDocumento <'16/06/2022' "
+                sql &= "UNION ALL "
+                sql &= "select CodTipoMovimiento, IDArticulo, DescArticulo, Cantidad, IDAlmacen, Documento, FechaDocumento, IDTipo, IDFamilia, ValorReposicionA, PrecioEstandarA, IDUdInterna "
+                sql &= "from xtecozam50r2..vFrmCIMovimientos "
+                sql &= "where (IDFamilia='2002' OR IDFamilia='0202') AND (IDAlmacen='" & obra & "' OR NObra='alq-" & obra & "') AND FechaDocumento >='16/06/2022' AND CodTipoMovimiento!='S1'  order by FechaDocumento"
+
+                tabla = arti.DevuelveTabla2(sql)
+            End If
+
+            Dim rp As New Report("MOVFERR")
+            rp.Formulas("Obra").Text = obra
+            rp.DataSource = tabla
+            ExpertisApp.OpenReport(rp)
+            e.Cancel = True
         End If
     End Sub
     Private Sub GenerarInformeBeneficio2(ByVal Fecha1 As Date, ByVal Fecha2 As Date, ByVal idfamilia As String)
