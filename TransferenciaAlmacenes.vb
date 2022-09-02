@@ -1069,8 +1069,8 @@ Public Class TransferenciaAlmacenes
                         Dim tbstockalmc As New DataTable
                         Dim filtro As New Filter
 
-                        filtro.Add("IDArticulo", FilterOperator.Equal, dt.Rows(i)("IDArticulo"))
-                        filtro.Add("IDAlmacen", FilterOperator.Equal, dt.Rows(i)("IDAlmacenOrigen"))
+                        filtro.Add("IDArticulo", FilterOperator.Equal, dt.Rows(i)("IDArticulo").ToString)
+                        filtro.Add("IDAlmacen", FilterOperator.Equal, dt.Rows(i)("IDAlmacenOrigen").ToString)
                         tbstockalmc = New BE.DataEngine().Filter("tbMaestroArticuloAlmacen", filtro)
 
                         'If tbstockalmc.Rows.Count = 0 Or tbstockalmc.Rows(0)("StockFisico") <= dt.Rows(i)("Cantidad") Then
@@ -1111,7 +1111,7 @@ Public Class TransferenciaAlmacenes
                                 Dim tbart As New DataTable
                                 Dim filtro1 As New Filter
 
-                                filtro1.Add("IDArticulo", FilterOperator.Equal, dr(0))
+                                filtro1.Add("IDArticulo", FilterOperator.Equal, dr(0).ToString)
                                 tbart = New BE.DataEngine().Filter("tbMaestroArticulo", filtro1)
                                 dr2("DescArticulo") = tbart.Rows(0)("DescArticulo")
 
@@ -1167,6 +1167,8 @@ Public Class TransferenciaAlmacenes
 
                     Grid.DataSource = dt2
                 Catch ex As Exception
+                    MessageBox.Show(ex.ToString)
+
                     MessageBox.Show("Error. No hay más datos que añadir. ")
                 End Try
             End If
