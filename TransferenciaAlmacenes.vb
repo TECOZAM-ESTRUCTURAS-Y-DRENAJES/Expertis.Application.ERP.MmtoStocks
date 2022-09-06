@@ -1060,8 +1060,19 @@ Public Class TransferenciaAlmacenes
                     ruta = openFD.FileName
                     hoja = "Hoja1"
                     rango = "A1:E500"
-                    Dim dt As DataTable = ObtenerDatosExcel(ruta, hoja, rango)
-
+                    Dim dtCopia As DataTable = ObtenerDatosExcel(ruta, hoja, rango)
+                    Dim dt As New DataTable
+                    'Compruebo que no hay filas vacias
+                    For j As Integer = 0 To dtCopia.Columns.Count - 1
+                        dt.Columns.Add(dtCopia.Columns(j).ColumnName)
+                    Next
+                    Dim cont As Integer = 0
+                    For Each dr As DataRow In dtCopia.Rows
+                        If dtCopia.Rows(cont)("IDArticulo").ToString.Length <> 0 Then
+                            dt.Rows.Add(dtCopia.Rows(cont).ItemArray)
+                        End If
+                        cont += 1
+                    Next
                     'Recorro la tabla y compruebo el stock en el almacén origen del articulo y la cantidad que sale y si es menor lo notifica
                     Dim i As Integer = 0
 
@@ -1134,7 +1145,7 @@ Public Class TransferenciaAlmacenes
                                 Catch ex As Exception
                                     dr2("StockFisicoOrigen") = 0
                                 End Try
-                               
+
 
                                 dr2("Cantidad") = dr(2)
                                 dr2("IDAlmacenDestino") = dr(3)
