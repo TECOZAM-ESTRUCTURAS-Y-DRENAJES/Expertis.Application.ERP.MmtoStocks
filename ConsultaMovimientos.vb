@@ -1232,4 +1232,8 @@ Public Class ConsultaMovimientos
 
 
     End Sub
+
+    Private Sub IDObra_SetPredefinedFilter(ByVal sender As System.Object, ByVal e As Solmicro.Expertis.Engine.UI.AdvSearchFilterEventArgs) Handles IDObra.SetPredefinedFilter
+        e.Filter.Add("TipoMnto", enumTipoObra.tpalquiler)
+    End Sub
 End Class
