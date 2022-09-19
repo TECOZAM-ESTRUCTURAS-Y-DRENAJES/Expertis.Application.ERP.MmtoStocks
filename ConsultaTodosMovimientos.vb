@@ -845,7 +845,7 @@
         filtro.Add("idfamilia", FilterOperator.Equal, familia)
         filtro.Add("Activo", FilterOperator.Equal, 1)
 
-        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND IDArticulo!='0000000213' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "' "
+        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND IDArticulo!='0000000213' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "' and CodTipoMovimiento<>'C' AND IDMovimiento<>'5968' and IDMovimiento<>'5967' and IDMovimiento<>'5956' and IDMovimiento<>'5961' and IDMovimiento<>'5951'"
         Dim tabla3 As New DataTable
         tabla3 = arti.DevuelveTabla2(strSelect3)
 
@@ -990,7 +990,7 @@
         filtro.Add("idfamilia", FilterOperator.Equal, familia)
         filtro.Add("Activo", FilterOperator.Equal, 1)
 
-        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND IDArticulo!='0000000213' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "' "
+        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND IDArticulo!='0000000213' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "' and CodTipoMovimiento<>'C' AND IDMovimiento<>'5968' and IDMovimiento<>'5967' and IDMovimiento<>'5956' and IDMovimiento<>'5961' and IDMovimiento<>'5951'"
         Dim tabla3 As New DataTable
         tabla3 = arti.DevuelveTabla2(strSelect3)
 
@@ -1137,7 +1137,7 @@
         filtro.Add("idfamilia", FilterOperator.Equal, familia)
         filtro.Add("Activo", FilterOperator.Equal, 1)
 
-        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND IDArticulo!='0000000213' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "' "
+        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND IDArticulo!='0000000213' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "'and CodTipoMovimiento<>'C' AND IDMovimiento<>'5968' and IDMovimiento<>'5967' and IDMovimiento<>'5956' and IDMovimiento<>'5961' and IDMovimiento<>'5951'"
         Dim tabla3 As New DataTable
         tabla3 = arti.DevuelveTabla2(strSelect3)
 
@@ -1282,7 +1282,7 @@
         filtro.Add("idfamilia", FilterOperator.Equal, familia)
         filtro.Add("Activo", FilterOperator.Equal, 1)
 
-        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "' "
+        Dim strSelect3 As String = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1 where FechaDocumento <'" & Fecha2 & "' AND PrecioEstandarA!=0 AND Activo= 1 AND IDFamilia='" & idfamilia & "' and CodTipoMovimiento<>'C' AND IDMovimiento<>'5968' and IDMovimiento<>'5967' and IDMovimiento<>'5956' and IDMovimiento<>'5961' and IDMovimiento<>'5951'"
         Dim tabla3 As New DataTable
         tabla3 = arti.DevuelveTabla2(strSelect3)
 
