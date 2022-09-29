@@ -256,6 +256,12 @@
     <Compile Include="CIAcumulados.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CIFacturasCentroCoste.Designer.vb">
+      <DependentUpon>CIFacturasCentroCoste.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CIFacturasCentroCoste.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CIRotacion.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +362,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CIAcumulados.resx">
       <DependentUpon>CIAcumulados.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CIFacturasCentroCoste.resx">
+      <DependentUpon>CIFacturasCentroCoste.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="CIRotacion.resx">
