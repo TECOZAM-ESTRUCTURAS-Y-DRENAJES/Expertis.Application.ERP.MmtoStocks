@@ -1,3 +1,5 @@
+Imports Solmicro.Expertis.Application.ERP.Alquiler
+
 Public Class TransferenciaAlmacenes
     Inherits Solmicro.Expertis.Engine.UI.FormBase
 
@@ -970,12 +972,41 @@ Public Class TransferenciaAlmacenes
                     Next
 
                     If Not Detalle Is Nothing AndAlso Detalle.Length > 0 Then
+                        '------------- ACTUALIZACION ACTIVOS CON Nº DE SERIE 31/1/23
+                        seguimientoActivos(dt)
+                        '------------- FIN ACTUALIZACION ACTIVOS
                         Dim frm As New DetalleActualizacionStock
                         frm.DataSource = Detalle
                         frm.ShowDialog()
                     End If
                 End If
             End If
+        End If
+    End Sub
+    Public Sub seguimientoActivos(ByVal dtExpedir As DataTable)
+        Dim fechaDocumento As String
+        Dim idAlmacenOrigen As String
+        Dim idAlmacenDestino As String
+
+        fechaDocumento = dtExpedir.Rows(0)("FechaDocumento")
+        idAlmacenDestino = dtExpedir.Rows(0)("IDAlmacenDestino")
+        idAlmacenOrigen = dtExpedir.Rows(0)("IDAlmacenOrigen")
+        'Seguimiento articulos con nº serie
+        Dim tbArticulos As DataTable
+        Dim f As New Filter(FilterUnionOperator.Or)
+        For Each fila As DataRow In dtExpedir.Rows
+            f.Add("IDArticulo", fila("IDArticulo"))
+        Next
+
+        tbArticulos = New BE.DataEngine().Filter("vControlArticulosNSerie", f)
+        If tbArticulos.Rows.Count <> 0 Then
+
+            Dim frmSegNSeries As New frmSeguimientoNumeroSerie
+            frmSegNSeries.filtro = f
+            frmSegNSeries.fechaDoc = fechaDocumento
+            frmSegNSeries.idalmacen = idAlmacenDestino
+            frmSegNSeries.idalmacenorigen = idAlmacenOrigen
+            frmSegNSeries.ShowDialog()
         End If
     End Sub
 

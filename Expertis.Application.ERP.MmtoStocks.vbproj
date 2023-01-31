@@ -96,6 +96,10 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Expertis.Application.ERP.Alquiler, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Expertis.Application.ERP.CommonClasses">
       <Name>Expertis.Application.ERP.CommonClasses</Name>
       <HintPath>..\..\..\Bin\Expertis.Application.ERP.CommonClasses.dll</HintPath>

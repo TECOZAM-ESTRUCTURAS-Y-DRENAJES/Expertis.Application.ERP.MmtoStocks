@@ -1,3 +1,5 @@
+Imports Solmicro.Expertis.Application.ERP.Alquiler
+
 Public Class MovimientoManual
     Inherits Solmicro.Expertis.Engine.UI.SimpleMnto
 
@@ -1040,6 +1042,10 @@ Public Class MovimientoManual
         If DatosCabeceraValidos() Then
             If DatosGridValidos() Then
                 Dim movimientos(-1) As StockData
+
+                Dim dtExp As New DataTable
+                dtExp = grdMovimientos.DataSource
+
                 For Each row As GridEXRow In grdMovimientos.GetRows
                     mEnlace = mEnlace + 1
 
@@ -1085,7 +1091,6 @@ Public Class MovimientoManual
 
                     Dim datMovtos As New ProcesoStocks.DataMovimientosGenericosES(NumeroMovimiento, movimientos)
                     Dim updateData As StockUpdateData() = ExpertisApp.ExecuteTask(Of ProcesoStocks.DataMovimientosGenericosES, StockUpdateData())(AddressOf ProcesoStocks.MovimientosGenericosES, datMovtos)
-
                     Dim frm As New DetalleActualizacionStock
                     frm.DataSource = updateData
                     frm.ShowDialog()
