@@ -818,8 +818,62 @@ Public Class TransferenciaAlmacenes
         mLotesDestino.LoteCollection.CommitDelete()
         mSeries.SerieCollection.CommitDelete()
     End Sub
+    Public Function compruebaAlmacenesDestino(ByVal dt As DataTable) As Integer
+        Dim dtOrdenada As New DataTable
+        dt.DefaultView.Sort = "IDAlmacenDestino"
+        dtOrdenada = dt.DefaultView.ToTable
 
+        'Recorro la tabla y si hay dos IDAlmacenDestino devuelvo 1
+        Dim cont As Integer
+        cont = 0
+        For Each dr As DataRow In dtOrdenada.Rows
+            Try
+                If dtOrdenada.Rows(cont)("IDAlmacenDestino") <> dtOrdenada.Rows(cont + 1)("IDAlmacenDestino") Then
+                    Return 1
+                End If
+            Catch ex As Exception
+                Return 0
+            End Try
+            cont += 1
+        Next
+    End Function
+    Public Function compruebaAlmacenesOrigen(ByVal dt As DataTable) As Integer
+        Dim dtOrdenada As New DataTable
+        dt.DefaultView.Sort = "IDAlmacenOrigen"
+        dtOrdenada = dt.DefaultView.ToTable
+
+        'Recorro la tabla y si hay dos IDAlmacenDestino devuelvo 1
+        Dim cont As Integer
+        cont = 0
+        For Each dr As DataRow In dtOrdenada.Rows
+            Try
+                If dtOrdenada.Rows(cont)("IDAlmacenOrigen") <> dtOrdenada.Rows(cont + 1)("IDAlmacenOrigen") Then
+                    Return 1
+                End If
+            Catch ex As Exception
+                Return 0
+            End Try
+            cont += 1
+        Next
+    End Function
     Private Sub GenerarMovimientos(ByVal sender As Object, ByVal e As Janus.Windows.UI.CommandBars.CommandEventArgs) Handles Execute.Click
+
+        'David V 07/02/23 Se hace un check de que la transferencia no se haga desde/hasta
+        '2 almacenes diferentes.
+        Dim dtMov As New DataTable
+        dtMov = Grid.DataSource
+
+        If compruebaAlmacenesOrigen(dtMov) = 1 Then
+            MsgBox("No se puede hacer un movimiento de dos almacenes a uno.")
+            Exit Sub
+        End If
+
+        If compruebaAlmacenesDestino(dtMov) = 1 Then
+            MsgBox("No se puede hacer un movimiento de un almacén a dos distintos.")
+            Exit Sub
+        End If
+
+
         If Grid.RecordCount > 0 Then
             If Grid.DataChanged Then
                 ExpertisApp.GenerateMessage("Existen actualizaciones pendientes.", MessageBoxButtons.OK, MessageBoxIcon.Information)
