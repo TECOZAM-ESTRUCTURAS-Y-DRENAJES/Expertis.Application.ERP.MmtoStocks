@@ -104,6 +104,7 @@ Partial Class frmInformeFecha
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.MaximizeBox = False
         Me.Name = "frmInformeFecha"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmInformeFecha"
         Me.Frame1.ResumeLayout(False)
         Me.Frame1.PerformLayout()
@@ -114,7 +115,7 @@ Partial Class frmInformeFecha
     Friend WithEvents Label2 As Solmicro.Expertis.Engine.UI.Label
     Friend WithEvents Button1 As Solmicro.Expertis.Engine.UI.Button
     Friend WithEvents Button2 As Solmicro.Expertis.Engine.UI.Button
-    Friend WithEvents FechaDesde As Solmicro.Expertis.Engine.UI.CalendarBox
-    Friend WithEvents FechaHasta As Solmicro.Expertis.Engine.UI.CalendarBox
+    Public WithEvents FechaDesde As Solmicro.Expertis.Engine.UI.CalendarBox
+    Public WithEvents FechaHasta As Solmicro.Expertis.Engine.UI.CalendarBox
     Friend WithEvents Frame1 As Solmicro.Expertis.Engine.UI.Frame
 End Class
