@@ -102,6 +102,7 @@ Partial Class frmInformeFechaEncofrado
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Name = "frmInformeFechaEncofrado"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmInformeFechaEncofrado"
         Me.Frame1.ResumeLayout(False)
         Me.Frame1.PerformLayout()
