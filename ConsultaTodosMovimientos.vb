@@ -804,6 +804,8 @@
             End If
 
         Next
+
+        LimpiaAcumuladoNegativo(tabla3)
         rp.DataSource = tabla3
 
         For Each drfam As DataRow In dtFam.Rows
@@ -846,6 +848,7 @@
 
 
             Next
+            LimpiaAcumuladoNegativo(tabla)
             rp.Subreports("acumuladoMesAnt").DataSource = tabla
             rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
 
@@ -943,6 +946,10 @@
             End If
 
         Next
+
+        'DAVID VELASCO 13/05/24 LIMPIEZA ACUMULADO NEGATIVO
+        LimpiaAcumuladoNegativo(tabla3)
+
         rp.DataSource = tabla3
 
         For Each drfam As DataRow In dtFam.Rows
@@ -1028,6 +1035,9 @@
                 End If
 
             Next
+
+            LimpiaAcumuladoNegativo(tabla)
+
             rp.Subreports("acumuladoMesAnt").DataSource = tabla
             rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
 
@@ -1036,7 +1046,13 @@
             MsgBox(ex.Message)
         End Try
     End Sub
-
+    Public Sub LimpiaAcumuladoNegativo(ByRef dt As DataTable)
+        For Each dr As DataRow In dt.Rows
+            If dr("Acumulado") < 0 Then
+                dr("Acumulado") = 0
+            End If
+        Next
+    End Sub
     Private Sub GenerarInformeBeneficio20(ByVal Fecha1 As Date, ByVal Fecha2 As Date, ByVal idfamilia As String)
         'Creo instancia del informe con Alias: INFENCOTODOS
         Dim rp As New Report("COSTESFAMILIA")
@@ -1089,6 +1105,8 @@
             End If
 
         Next
+
+        LimpiaAcumuladoNegativo(tabla3)
         rp.DataSource = tabla3
 
         For Each drfam As DataRow In dtFam.Rows
@@ -1174,6 +1192,8 @@
                 End If
 
             Next
+
+            LimpiaAcumuladoNegativo(tabla)
 
             rp.Subreports("acumuladoMesAnt").DataSource = tabla
             rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
@@ -1354,6 +1374,7 @@
         Dim tabla3 As New DataTable
         tabla3 = arti.DevuelveTabla2(strSelect3)
 
+        LimpiaAcumuladoNegativo(tabla3)
         rp.DataSource = tabla3
 
         For Each drfam As DataRow In dtFam.Rows
@@ -1413,6 +1434,8 @@
             Dim tabla As New DataTable
             tabla = arti.DevuelveTabla2(strSelect2)
 
+            LimpiaAcumuladoNegativo(tabla)
+
             rp.Subreports("acumuladoMesAnt").DataSource = tabla
             rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
 
@@ -1446,6 +1469,7 @@
         Dim tabla3 As New DataTable
         tabla3 = arti.DevuelveTabla2(strSelect3)
 
+        LimpiaAcumuladoNegativo(tabla3)
         rp.DataSource = tabla3
 
         Try
@@ -1502,6 +1526,8 @@
             Dim tabla As New DataTable
             tabla = arti.DevuelveTabla2(strSelect2)
 
+            LimpiaAcumuladoNegativo(tabla)
+
             rp.Subreports("acumuladoMesAnt").DataSource = tabla
             rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
 
@@ -1540,6 +1566,7 @@
         Dim tabla3 As New DataTable
         tabla3 = arti.DevuelveTabla2(strSelect3)
 
+        LimpiaAcumuladoNegativo(tabla3)
         rp.DataSource = tabla3
 
         For Each drfam As DataRow In dtFam.Rows
@@ -1599,6 +1626,7 @@
             Dim tabla As New DataTable
             tabla = arti.DevuelveTabla2(strSelect2)
 
+            LimpiaAcumuladoNegativo(tabla)
             rp.Subreports("acumuladoMesAnt").DataSource = tabla
             rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
 
