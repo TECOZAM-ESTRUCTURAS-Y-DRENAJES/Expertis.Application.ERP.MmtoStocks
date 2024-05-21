@@ -1274,7 +1274,7 @@ Public Class ConsultaTodosMovimientos
             strSelect2 &= "WHERE fechaDocumento <='" & Fecha1 & "' "
             strSelect2 &= "GROUP BY idarticulo, idalmacen) FechaMaxima ON dbo.tbHistoricoMovimiento.IDArticulo = FechaMaxima.idarticulo AND "
             strSelect2 &= "dbo.tbHistoricoMovimiento.IDAlmacen = FechaMaxima.idalmacen And FechaMaxima.fecha = dbo.tbHistoricoMovimiento.FechaDocumento "
-            strSelect2 &= "WHERE (dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'T+' OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'E3' OR OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'E1' OR "
+            strSelect2 &= "WHERE (dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'T+' OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'E3' OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'E1' OR "
             strSelect2 &= "dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'T-' OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'S1' OR dbo.tbMaestroTipoMovimiento.CodTipoMovimiento = 'S7') AND PrecioEstandarA!=0 AND (dbo.tbMaestroAlmacen.Activo = 1) AND (dbo.tbMaestroArticulo.IDFamilia = '" & familia & "') "
             strSelect2 &= "ORDER BY IDAlmacen, IDArticulo, FechaDocumento desc, IDLineaMovimiento desc"
 
