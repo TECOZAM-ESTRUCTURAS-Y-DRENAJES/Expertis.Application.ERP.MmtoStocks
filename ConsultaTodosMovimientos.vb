@@ -1,4 +1,7 @@
-﻿Public Class ConsultaTodosMovimientos
+﻿Imports Solmicro.Expertis.Business
+Imports System.Data.SqlClient
+
+Public Class ConsultaTodosMovimientos
     Inherits Solmicro.Expertis.Engine.UI.CIMnto
 
     Public Sub New()
@@ -29,166 +32,130 @@
         Dim Familia As String
         Dim Tipo As String
         Dim obra As String
-        ' Dim vAnio As Integer
-        'Dim cancel As Boolean
-        'If e.Alias = "INFENCOFRADO" Then
-        '    'Abrir Informe de Beneficio2 - informe transferencias encofrado
 
-        '    Dim frm As New frmInformeFechaEncofrado
-        '    frm.ShowDialog()
-        '    'vMes = frm.VM
-        '    Fecha1 = frm.FechaDesde.Value
-        '    'vAnio = frm.VA
-        '    Fecha2 = frm.FechaHasta.Value
-        '    'obra = txtNObra.Text
-        '    Familia = AdvFamilia.Text
-
-        '    If frm.blEstado = True Then
-        '        MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        '        e.Cancel = True
-        '        Exit Sub
-        '    End If
-        '    'GenerarInformeBeneficio(CInt(vMes), CInt(vAnio))
-        '    GenerarInformeBeneficio2(CDate(Fecha1), CDate(Fecha2), Familia)
-
-        '    e.Cancel = True
-        'ElseIf e.Alias = "INFENCOTODOS" Then
-        '    Dim frm As New frmInformeFechaEncofrado
-        '    frm.ShowDialog()
-        '    'vMes = frm.VM
-        '    Fecha1 = frm.FechaDesde.Value
-        '    'vAnio = frm.VA
-        '    Fecha2 = frm.FechaHasta.Value
-        '    'obra = txtNObra.Text
-        '    Familia = AdvFamilia.Text
-
-        '    If frm.blEstado = True Then
-        '        MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        '        e.Cancel = True
-        '        Exit Sub
-        '    End If
-        '    'GenerarInformeBeneficio(CInt(vMes), CInt(vAnio))
-        '    GenerarInformeBeneficio5(CDate(Fecha1), CDate(Fecha2), Familia)
-
-        '    e.Cancel = True
-        'ElseIf e.Alias = "IBISPRUEBA" Then
-        '    Dim frm As New frmInformeFechaEncofrado
-        '    frm.ShowDialog()
-        '    'vMes = frm.VM
-        '    Fecha1 = frm.FechaDesde.Value
-        '    'vAnio = frm.VA
-        '    Fecha2 = frm.FechaHasta.Value
-        '    'obra = txtNObra.Text
-        '    Familia = AdvFamilia.Text
-
-        '    If frm.blEstado = True Then
-        '        MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        '        e.Cancel = True
-        '        Exit Sub
-        '    End If
-        '    'GenerarInformeBeneficio(CInt(vMes), CInt(vAnio))
-        '    GenerarInformeBeneficio4(CDate(Fecha1), CDate(Fecha2), Familia)
-
-        '    e.Cancel = True
         If e.Alias = "INFENCOSUBFAM" Then
-            Dim frm As New frmInformeFechaEncofrado
-            frm.ShowDialog()
-            Fecha1 = frm.FechaDesde.Value
-            Fecha2 = frm.FechaHasta.Value
-            Familia = AdvFamilia.Text
+            'Dim frm As New frmInformeFechaEncofrado
+            'frm.ShowDialog()
+            'Fecha1 = frm.FechaDesde.Value
+            'Fecha2 = frm.FechaHasta.Value
+            'Familia = AdvFamilia.Text
 
-            If frm.blEstado = True Then
-                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                e.Cancel = True
-                Exit Sub
-            End If
-            'GenerarInformeBeneficioPorSubFamilia(CDate(Fecha1), CDate(Fecha2), Familia)
-            GenerarInformeBeneficio10(CDate(Fecha1), CDate(Fecha2), Familia)
+            'If frm.blEstado = True Then
+            '    MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    e.Cancel = True
+            '    Exit Sub
+            'End If
+            ''GenerarInformeBeneficioPorSubFamilia(CDate(Fecha1), CDate(Fecha2), Familia)
+            'GenerarInformeBeneficio10(CDate(Fecha1), CDate(Fecha2), Familia)
 
-            e.Cancel = True
+            'e.Cancel = True
+            GeneraInforme("INFENCOSUBFAM", e)
+
         ElseIf e.Alias = "INFENCORESUB" Then
-            Dim frm As New frmInformeFechaEncofrado
-            frm.ShowDialog()
-            Fecha1 = frm.FechaDesde.Value
-            Fecha2 = frm.FechaHasta.Value
-            Familia = AdvFamilia.Text
+            'Dim frm As New frmInformeFechaEncofrado
+            'frm.ShowDialog()
+            'Fecha1 = frm.FechaDesde.Value
+            'Fecha2 = frm.FechaHasta.Value
+            'Familia = AdvFamilia.Text
 
-            If frm.blEstado = True Then
-                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                e.Cancel = True
-                Exit Sub
-            End If
-            'GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
-            GenerarInformeBeneficio10Resumen(CDate(Fecha1), CDate(Fecha2), Familia)
+            'If frm.blEstado = True Then
+            '    MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    e.Cancel = True
+            '    Exit Sub
+            'End If
+            ''GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
+            'GenerarInformeBeneficio10Resumen(CDate(Fecha1), CDate(Fecha2), Familia)
 
-            e.Cancel = True
+            'e.Cancel = True
+            GeneraInforme("INFENCORESUB", e)
+
         ElseIf e.Alias = "COSTESFAMILIA" Then
-            Dim frm As New frmInformeFechaEncofrado
-            frm.ShowDialog()
-            Fecha1 = frm.FechaDesde.Value
-            Fecha2 = frm.FechaHasta.Value
-            Familia = AdvFamilia.Text
+            'Dim frm As New frmInformeFechaEncofrado
+            'frm.ShowDialog()
+            'Fecha1 = frm.FechaDesde.Value
+            'Fecha2 = frm.FechaHasta.Value
+            'Familia = AdvFamilia.Text
 
-            If frm.blEstado = True Then
-                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                e.Cancel = True
-                Exit Sub
-            End If
-            'GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
-            GenerarInformeBeneficio20(CDate(Fecha1), CDate(Fecha2), Familia)
+            'If frm.blEstado = True Then
+            '    MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    e.Cancel = True
+            '    Exit Sub
+            'End If
+            ''GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
+            'GenerarInformeBeneficio20(CDate(Fecha1), CDate(Fecha2), Familia)
 
-            e.Cancel = True
+            'e.Cancel = True
+            GeneraInforme("COSTESFAMILIA", e)
+
         ElseIf e.Alias = "COSTES3017" Then
-            Dim frm As New frmInformeFechaEncofrado
-            frm.ShowDialog()
-            Fecha1 = frm.FechaDesde.Value
-            Fecha2 = frm.FechaHasta.Value
-            Familia = AdvFamilia.Text
+            'Dim frm As New frmInformeFechaEncofrado
+            'frm.ShowDialog()
+            'Fecha1 = frm.FechaDesde.Value
+            'Fecha2 = frm.FechaHasta.Value
+            'Familia = AdvFamilia.Text
 
-            If frm.blEstado = True Then
-                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                e.Cancel = True
-                Exit Sub
-            End If
-            'GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
-            GenerarInformeCostes3017(CDate(Fecha1), CDate(Fecha2), Familia)
+            'If frm.blEstado = True Then
+            '    MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    e.Cancel = True
+            '    Exit Sub
+            'End If
+            ''GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
+            'GenerarInformeCostes3017(CDate(Fecha1), CDate(Fecha2), Familia)
 
-            e.Cancel = True
-            'Pruebas de solución de problemas
-            '19/01/2023
+            'e.Cancel = True
+            ''Pruebas de solución de problemas
+            ''19/01/2023
+            GeneraInforme("COSTES3017", e)
+
         ElseIf e.Alias = "COSTESESCALERAS" Then
-            Dim frm As New frmInformeFechaEncofrado
-            frm.ShowDialog()
-            Fecha1 = frm.FechaDesde.Value
-            Fecha2 = frm.FechaHasta.Value
+            'Dim frm As New frmInformeFechaEncofrado
+            'frm.ShowDialog()
+            'Fecha1 = frm.FechaDesde.Value
+            'Fecha2 = frm.FechaHasta.Value
 
-            If frm.blEstado = True Then
-                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                e.Cancel = True
-                Exit Sub
+            'If frm.blEstado = True Then
+            '    MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    e.Cancel = True
+            '    Exit Sub
+            'End If
+            ''GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
+            'GenerarInformeCostesEscaleras(CDate(Fecha1), CDate(Fecha2))
+
+            'e.Cancel = True
+            Dim result As DialogResult = MessageBox.Show("¿Quieres sacar el resumen de las escaleras?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            Dim condicionEscaleras As String = "AND (IDArticulo='0000000340' OR IDArticulo='2127711' OR IDArticulo='0000000754' OR IDArticulo='0000000417')"
+            If result = DialogResult.Yes Then
+                GeneraInforme("COSTESCRES", e, condicionEscaleras)
+            Else
+                GeneraInforme("COSTESESCALERAS", e, condicionEscaleras)
             End If
-            'GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
-            GenerarInformeCostesEscaleras(CDate(Fecha1), CDate(Fecha2))
 
-            e.Cancel = True
         ElseIf e.Alias = "COSTES3027" Then
-            Dim frm As New frmInformeFechaEncofrado
-            frm.ShowDialog()
-            Fecha1 = frm.FechaDesde.Value
-            Fecha2 = frm.FechaHasta.Value
-            Familia = AdvFamilia.Text
+            'Dim frm As New frmInformeFechaEncofrado
+            'frm.ShowDialog()
+            'Fecha1 = frm.FechaDesde.Value
+            'Fecha2 = frm.FechaHasta.Value
+            'Familia = AdvFamilia.Text
 
-            If frm.blEstado = True Then
-                MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-                e.Cancel = True
-                Exit Sub
+            'If frm.blEstado = True Then
+            '    MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            '    e.Cancel = True
+            '    Exit Sub
+            'End If
+            ''GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
+            'GenerarInformeCostes3027(CDate(Fecha1), CDate(Fecha2), Familia)
+
+            'e.Cancel = True
+            ''Pruebas de solución de problemas
+            ''19/01/2023
+            Dim result As DialogResult = MessageBox.Show("¿Quieres sacar el resumen de los utiles?", "Confirmacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            Dim condicion3027 As String = "AND (Alias='UDC-015' OR Alias='UDC-018' OR Alias='UDC-019')"
+            If result = DialogResult.Yes Then
+                GeneraInforme("COSTES3027Resumen", e, condicion3027)
+            Else
+                GeneraInforme("COSTES3027", e, condicion3027)
             End If
-            'GenerarInformeBeneficioPorSubFamiliaResumen(CDate(Fecha1), CDate(Fecha2), Familia)
-            GenerarInformeCostes3027(CDate(Fecha1), CDate(Fecha2), Familia)
 
-            e.Cancel = True
-            'Pruebas de solución de problemas
-            '19/01/2023
         ElseIf e.Alias = "INFTIPO30F" Then
             Dim frm As New frmInformeFechaEncofrado
             frm.ShowDialog()
@@ -1725,5 +1692,129 @@
         Catch ex As SqlClient.SqlException
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    ' 21/05/2024 - dfernandez
+    Public Function EjecutarConsulta(ByVal consulta As String) As DataTable
+
+        Dim dt As New DataTable()
+        Dim myConn As New SqlConnection
+        myConn = New SqlConnection("Data Source=stecodesarr;Initial Catalog=xTecozam50R2;User ID=sa;Password=180M296;")
+        Dim myCmd As SqlCommand
+
+        myCmd = New SqlCommand(consulta, myConn)
+
+        Dim adp As New SqlDataAdapter(myCmd)
+
+        adp.Fill(dt)
+
+        myConn.Close()
+
+        Return dt
+    End Function
+
+    ' 21/05/2024 - dfernandez
+    Public Sub AñadeSubfamilias(ByVal dt As DataTable)
+
+        For Each dr As DataRow In dt.Rows
+            If dr("DescArticulo").ToString.Contains("ELEMENTO") Or dr("DescArticulo").ToString.Contains("ESQUINA") Then
+                dr("IDSubfamilia") = "ELEMENTO MARCO"
+            ElseIf dr("DescArticulo").ToString.Contains("MARCO-TEC") Then
+                dr("IDSubfamilia") = "MARCO-TEC"
+            ElseIf dr("DescArticulo").ToString.Contains("MEDIO MOLDE") Or dr("DescArticulo").ToString.Contains("ZUNCHO") Then
+                dr("IDSubfamilia") = "MEDIO MOLDE"
+            ElseIf dr("DescArticulo").ToString.Contains("PANEL") Then
+                dr("IDSubfamilia") = "ORMA"
+            ElseIf dr("DescArticulo").ToString.Contains("VIGA") Or dr("DescArticulo").ToString.Contains("RIPADO") Then
+                dr("IDSubfamilia") = "VIGA"
+            ElseIf dr("DescArticulo").ToString.Contains("PUNTAL") Or dr("DescArticulo").ToString.Contains("+") Then
+                dr("IDSubfamilia") = "PUNTAL"
+            ElseIf dr("DescArticulo").ToString.Contains("TABICA") Then
+                dr("IDSubfamilia") = "TABICA"
+            ElseIf dr("DescArticulo").ToString.Contains("TORNILLO") Then
+                dr("IDSubfamilia") = "TORNILLO"
+            ElseIf dr("DescArticulo").ToString.Contains("BARANDILLA") Or dr("DescArticulo").ToString = "CABEZAL FRONTAL ORMA" Then
+                dr("IDSubfamilia") = "SOPORTES BARANDILLA"
+            ElseIf dr("DescArticulo").ToString.Contains("SOPORTE CONSOLA") Then
+                dr("IDSubfamilia") = "SOPORTE CONSOLA"
+            Else
+                dr("IDSubfamilia") = "OTROS"
+            End If
+        Next
+    End Sub
+
+    ' 21/05/2024 - dfernandez
+    Public Sub GeneraInforme(ByVal informe As String, ByVal e As Solmicro.Expertis.Engine.UI.ReportDesignObjectsEventArgs, Optional ByVal condiciones As String = "")
+        Dim rp As New Report(informe)
+        Dim m As New Negocio.Articulo
+        Dim Fecha1 As Date : Dim Fecha2 As Date : Dim familia As String
+
+        Dim frm As New frmInformeFechasFamilia
+        frm.EstablecerModoPorInforme(informe)
+        frm.ShowDialog()
+
+        If frm.blEstado = True Then
+            MessageBox.Show("Proceso Cancelado", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            e.Cancel = True
+            Exit Sub
+        End If
+
+        Fecha1 = frm.cFechaDesde.Value
+        Fecha2 = frm.cFechaHasta.Value
+        familia = frm.advFamilia.Value
+
+        Dim laborables As String = Dias_naturales(Fecha1, Fecha2)
+
+        Dim dFamilia As String
+        Dim dtFam As DataTable = m.DevuelveTabla(familia)
+        For Each drfam As DataRow In dtFam.Rows
+            dFamilia = drfam(0)
+        Next
+
+        Dim consultaAnterior As String
+        consultaAnterior = "WITH TMP AS (" & vbCrLf
+        consultaAnterior &= "SELECT *, ROW_NUMBER() OVER(PARTITION BY IDArticulo,IDAlmacen ORDER BY FechaDocumento DESC, IDLineaMovimiento DESC) as rn" & vbCrLf
+        consultaAnterior &= "FROM vFrmCIMovimientosE4_1" & vbCrLf
+        consultaAnterior &= "WHERE FechaDocumento <= '" & Fecha1 & "'" & vbCrLf
+        If Not String.IsNullOrEmpty(familia) Then
+            consultaAnterior &= "AND IDFamilia = '" & familia & "'" & vbCrLf
+        End If
+        consultaAnterior &= "AND Activo = 1 AND CodTipoMovimiento <> 'C' AND PrecioEstandarA!=0)" & vbCrLf
+        consultaAnterior &= "SELECT * FROM TMP" & vbCrLf
+        consultaAnterior &= "WHERE rn = 1" & vbCrLf
+
+        Dim consulta As String
+        consulta = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1" & vbCrLf
+        consulta &= "WHERE Activo = 1 AND FechaDocumento<>'" & Fecha1 & "' AND FechaDocumento<='" & Fecha2 & "'" & vbCrLf
+        If Not String.IsNullOrEmpty(familia) Then
+            consulta &= "AND IDFamilia = '" & familia & "'" & vbCrLf
+        End If
+        If Not String.IsNullOrEmpty(condiciones) Then
+            consulta &= condiciones & vbCrLf
+        End If
+        consulta &= "AND IDArticulo!='0000000213' AND CodTipoMovimiento <> 'C' AND PrecioEstandarA!=0 AND IDMovimiento<>'5968' and IDMovimiento<>'5967' and IDMovimiento<>'5956' and IDMovimiento<>'5961' and IDMovimiento<>'5951'" & vbCrLf
+        consulta &= "ORDER BY FechaDocumento DESC"
+
+        Dim dtAnterior As DataTable
+        Dim dtConsulta As DataTable
+
+        dtAnterior = EjecutarConsulta(consultaAnterior)
+        dtConsulta = EjecutarConsulta(consulta)
+        AñadeSubfamilias(dtAnterior)
+        AñadeSubfamilias(dtConsulta)
+        LimpiaAcumuladoNegativo(dtAnterior)
+        LimpiaAcumuladoNegativo(dtConsulta)
+
+        rp.DataSource = dtConsulta
+        rp.Formulas("laborables").Text = laborables
+        rp.Formulas("fecha1").Text = Fecha1
+        rp.Formulas("fecha2").Text = Fecha2
+        rp.Formulas("Familia").Text = dFamilia
+
+        rp.Subreports("acumuladoMesAnt").DataSource = dtAnterior
+        rp.Subreports("acumuladoMesAnt").Formulas("fechaMax").Text = Fecha1
+
+        ExpertisApp.OpenReport(rp)
+        e.Cancel = True
     End Sub
 End Class

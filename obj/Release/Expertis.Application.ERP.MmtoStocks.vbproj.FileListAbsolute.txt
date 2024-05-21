@@ -78,8 +78,6 @@ C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Ex
 C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll.licenses
 C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll
 C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.pdb
-C:\ExpertisNet50R2test\Bin\Expertis.Application.ERP.MmtoStocks.dll
-C:\ExpertisNet50R2test\Bin\Expertis.Application.ERP.MmtoStocks.pdb
 C:\Users\lgonzalez\Desktop\EXPERTIS\DESARROLLO EXPERTIS\FR2Sergio\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.frmInformeFecha.resources
 C:\ExpertisNet50R2\Bin\Expertis.Application.ERP.MmtoStocks.dll
 C:\ExpertisNet50R2\Bin\Expertis.Application.ERP.MmtoStocks.pdb
@@ -119,3 +117,36 @@ C:\Users\dvelasco\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.M
 C:\Users\dvelasco\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll.licenses
 C:\Users\dvelasco\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll
 C:\Users\dvelasco\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.pdb
+C:\ExpertisNet50R2test\Bin\Expertis.Application.ERP.MmtoStocks.dll
+C:\ExpertisNet50R2test\Bin\Expertis.Application.ERP.MmtoStocks.pdb
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\ResolveAssemblyReference.cache
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.Ajustes.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIAcumulados.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIFacturasCentroCoste.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIRotacion.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockAFechaLote.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockSeguridad.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CIStockUD.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.CltStock.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaLote.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaMovimientos.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaNSerie.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ConsultaTodosMovimientos.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.frmInformeFecha.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.frmInformeFechaEncofrado.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.frmInformeFechaFamilia.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.Inventarios.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.MovimientoManual.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ParametrosValoracion.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.SeleccionMoneda.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TodosMovimientosAlmacenes.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaAlmacenes.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaContenedor.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.TransferenciaPortes.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionEnFecha.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionEnFechaAlmacen.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Solmicro.Expertis.Application.ERP.MmtoStocks.ValoracionFIFO.resources
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.vbproj.GenerateResource.Cache
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll.licenses
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.dll
+C:\Users\dfernandez\Desktop\FuentesExpertis\Application\Expertis.Application.ERP.MmtoStocks\obj\Release\Expertis.Application.ERP.MmtoStocks.pdb

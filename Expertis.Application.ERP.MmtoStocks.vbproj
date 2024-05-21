@@ -159,7 +159,7 @@
     </Reference>
     <Reference Include="Expertis.Engine.UI.Design, Version=5.5.0.0, Culture=neutral, PublicKeyToken=f4e70a047dadc395, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\ExpertisNet50R2\Bin\Expertis.Engine.UI.Design.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\ExpertisNet50R2test\Bin\Expertis.Engine.UI.Design.dll</HintPath>
     </Reference>
     <Reference Include="Expertis.Engine.UI.Resources">
       <Name>Expertis.Engine.UI.Resources</Name>
@@ -173,27 +173,37 @@
       <AssemblyFolderKey>hklm\expertis.engine</AssemblyFolderKey>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Janus.Data.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+    <Reference Include="Janus.Data.v3, Version=3.5.109.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\ExpertisNet50R2test\Bin\Janus.Data.v3.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.ButtonBar.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+    <Reference Include="Janus.Windows.ButtonBar.v3, Version=3.5.109.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\ExpertisNet50R2test\Bin\Janus.Windows.ButtonBar.v3.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.CalendarCombo.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+    <Reference Include="Janus.Windows.CalendarCombo.v3, Version=3.5.109.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\ExpertisNet50R2test\Bin\Janus.Windows.CalendarCombo.v3.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.Common.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+    <Reference Include="Janus.Windows.Common.v3, Version=3.5.109.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\ExpertisNet50R2test\Bin\Janus.Windows.Common.v3.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.ExplorerBar.v3, Version=3.5.109.0, Culture=neutral, PublicKeyToken=21d5517571b185bf" />
-    <Reference Include="Janus.Windows.GridEX.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+    <Reference Include="Janus.Windows.ExplorerBar.v3, Version=3.5.109.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\ExpertisNet50R2test\Bin\Janus.Windows.ExplorerBar.v3.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.TimeLine.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+    <Reference Include="Janus.Windows.GridEX.v3, Version=3.5.109.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\ExpertisNet50R2test\Bin\Janus.Windows.GridEX.v3.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.UI.v3, Version=3.5.0.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+    <Reference Include="Janus.Windows.TimeLine.v3, Version=3.5.109.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\ExpertisNet50R2test\Bin\Janus.Windows.TimeLine.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.UI.v3, Version=3.5.109.0, Culture=neutral, PublicKeyToken=21d5517571b185bf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\ExpertisNet50R2test\Bin\Janus.Windows.UI.v3.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <HintPath>..\..\..\..\..\ExpertisDotNet50\Bin\Microsoft.Office.Interop.Excel.dll</HintPath>
@@ -318,6 +328,12 @@
       <DependentUpon>frmInformeFechaFamilia.vb</DependentUpon>
     </Compile>
     <Compile Include="frmInformeFechaFamilia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformeFechasFamilia.Designer.vb">
+      <DependentUpon>frmInformeFechasFamilia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInformeFechasFamilia.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="General.vb">
