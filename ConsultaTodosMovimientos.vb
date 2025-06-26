@@ -1775,7 +1775,7 @@ Public Class ConsultaTodosMovimientos
         consultaAnterior = "WITH TMP AS (" & vbCrLf
         consultaAnterior &= "SELECT *, ROW_NUMBER() OVER(PARTITION BY IDArticulo,IDAlmacen ORDER BY FechaDocumento DESC, IDLineaMovimiento DESC) as rn" & vbCrLf
         consultaAnterior &= "FROM vFrmCIMovimientosE4_1" & vbCrLf
-        consultaAnterior &= "WHERE FechaDocumento <= '" & Fecha1 & "'" & vbCrLf
+        consultaAnterior &= "WHERE FechaDocumento < '" & Fecha1 & "'" & vbCrLf
         If Not String.IsNullOrEmpty(familia) Then
             consultaAnterior &= "AND IDFamilia = '" & familia & "'" & vbCrLf
         End If
@@ -1785,7 +1785,7 @@ Public Class ConsultaTodosMovimientos
 
         Dim consulta As String
         consulta = "SELECT * FROM vFrmTransferenciasEncofrados2E4_1" & vbCrLf
-        consulta &= "WHERE Activo = 1 AND FechaDocumento<>'" & Fecha1 & "' AND FechaDocumento<='" & Fecha2 & "'" & vbCrLf
+        consulta &= "WHERE Activo = 1 AND FechaDocumento<='" & Fecha2 & "'" & vbCrLf
         If Not String.IsNullOrEmpty(familia) Then
             consulta &= "AND IDFamilia = '" & familia & "'" & vbCrLf
         End If
